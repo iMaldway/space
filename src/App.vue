@@ -1,0 +1,147 @@
+<template>
+  <div id="app">
+		<div class="home">
+			<div class="home_egg" id="home_egg">
+				<router-view></router-view>
+			</div>
+			<div class="home_egg_botom">
+				<div class="home_egg_botom_button" @click="backOf()">
+					<div class="home_egg_botom_button_square">
+					</div>
+				</div>
+			</div>
+		</div>
+    
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'App',
+	methods: {
+		backOf:()=>{
+			if(window.location.pathname=="/"){
+				return;
+			}else{
+				window.history.back()
+			}
+		}
+	}
+}
+</script>
+
+<style>
+	*{
+		box-sizing: border-box;
+		transition: all 0.3s ease;
+	}
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+html,body{
+	background-color: #5ca9ff;
+}
+@media (max-width: 1400px) {
+	.home{
+		background-color: #000000 !important;
+	}
+	.home_egg_botom_button{
+		border: 2px solid #FFFFFF !important;
+	}
+}
+@media (max-width: 600px) {
+	.home{
+		top: 0% !important;
+		bottom: 0% !important;
+		left: 0% !important;
+		right: 0% !important;
+		padding-top: 0px !important;
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+		border-radius: 0px !important;
+		box-shadow: 0 5px 10px rgba(0,0,0,0) !important;
+	}
+	.home_egg{
+		height: 100% !important;
+		border: 0px solid #b6c1c7 !important;
+		border-radius: 0px !important;
+	}
+	.home_egg_botom{
+		display: none !important;
+	}
+}
+.home{
+	z-index: 99;
+	position: fixed;
+	box-sizing: border-box;
+	top: 10%;
+	bottom: 10%;
+	left: 15%;
+	right: 15%;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	background-color: #ffffff;
+	border-radius: 25px;
+	box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+}
+.home_egg{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items:center;
+	align-content: center;
+	background-color: #FFFFFF;
+	position: relative;
+	width: 100%;
+	height: 90%;
+	border: 2px solid #b6c1c7;
+	border-radius: 15px;
+	overflow: hidden;
+}
+.home_egg_botom{
+	position: relative;
+	height: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-self: flex-end;
+}
+.home_egg_botom_button{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	border: 2px solid #b6c1c7;
+	border-radius: 50%;
+}
+.home_egg_botom_button:hover{
+	background-color: #A2B0B8;
+}
+.home_egg_botom_button:hover .home_egg_botom_button_square{
+	border: 1px solid #FFFFFF;
+	background-color: #FFFFFF;
+}
+
+.home_egg_botom_button:active{
+	background-color: #ffffff;
+}
+.home_egg_botom_button:active .home_egg_botom_button_square{
+	border: 1px solid #666666;
+	background-color: #666666;
+}
+
+.home_egg_botom_button_square{
+	border-radius: 3px;
+	height: 70%;
+	width: 70%;
+	border: 2px solid #e3e8ea;
+}
+</style>
