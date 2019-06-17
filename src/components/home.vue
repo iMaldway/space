@@ -1,5 +1,6 @@
 <template>
 	<div class="home_body" id="home_major_body">
+
 		<div class="home_left">
 			<div class="home_left_title">
 				{{content.name}}
@@ -30,6 +31,7 @@
 				</div>
 				<div></div>
 			</div>
+
 		</div>
 </template>
 
@@ -78,14 +80,14 @@
 					"year": 3.5
 				},
 				index: 0,
-				lastIndex:data.length
+				lastIndex: data.length
 			}
 		},
 		created: function() {
 			this.content = data[this.index];
 		},
 		methods: {
-			next: function(){
+			next: function() {
 				if (this.index >= data.length - 1) {
 					this.index = 0;
 				} else {
@@ -237,10 +239,14 @@
 	@media (max-width: 840px) {
 		.home_left {
 			height: 70% !important;
+			flex-basis: 100% !important;
 		}
-		.hone_right{
+
+		.hone_right {
 			height: 30% !important;
+			flex-basis: 100% !important;
 		}
+
 		.home_right_top {
 			width: 50% !important;
 			height: 60% !important;

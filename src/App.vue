@@ -3,7 +3,9 @@
 		<div class="home">
 			<div v-if="backApp" class="home_top_muen" @click="backOf()">
 				<</div> <div class="home_egg" id="home_egg">
-					<router-view></router-view>
+					<transition name="fade">
+						<router-view></router-view>
+					</transition>
 			</div>
 			<div class="home_egg_botom">
 				<div class="home_egg_botom_button" @click="backOf()">
@@ -31,9 +33,9 @@
 		watch: {
 			$route(to, from) {
 				console.log(to.path);
-				if(to.path!="/"){
+				if (to.path != "/") {
 					this.backApp = true;
-				}else{
+				} else {
 					this.backApp = false;
 				}
 			}
@@ -56,6 +58,19 @@
 	* {
 		box-sizing: border-box;
 		transition: all 0.3s ease;
+	}
+
+	.fade-enter-active,
+	.fade-leave-active {
+		transition: opacity .5s;
+	}
+
+	.fade-enter,
+	.fade-leave-to
+
+	/* .fade-leave-active below version 2.1.8 */
+		{
+		opacity: 0;
 	}
 
 	#app {
@@ -90,7 +105,7 @@
 
 	@media (max-width: 1400px) {
 		.home {
-			background-color: #000000 !important;
+			background-color: #FFFFFF !important;
 		}
 
 		.home_egg_botom_button {
@@ -99,9 +114,10 @@
 	}
 
 	@media (max-width: 600px) {
-		.home_top_muen{
-			display: inherit !important; 
+		.home_top_muen {
+			display: inherit !important;
 		}
+
 		.home {
 			top: 0% !important;
 			bottom: 0% !important;
@@ -136,7 +152,7 @@
 		padding-top: 15px;
 		padding-left: 15px;
 		padding-right: 15px;
-		background-color: #ffffff;
+		background-color: #000000;
 		border-radius: 25px;
 		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 	}

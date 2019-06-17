@@ -85,7 +85,7 @@
 				} else {
 					$this.pointer = 0;
 				}
-			}, 6000);
+			}, 3000);
 			// document.getElementById('fade').style.display = 'block';
 		},
 
