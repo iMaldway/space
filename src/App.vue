@@ -109,7 +109,7 @@
 		}
 
 		.home_egg_botom_button {
-			border: 2px solid #FFFFFF !important;
+			border: 2px solid #b6c1c7 !important;
 		}
 	}
 
