@@ -36,7 +36,7 @@
 <script>
 	let data = [{
 			"name": "Java",
-			"body": "三年开发经验。 最先接触的框架是SSH，没在实际项目中使用过，后面一直使用的是SSM框架。现在工作中主要用到的是Spring Boot，以及Spring系列的微服务架构。干了这么久，意识到自己的欠缺，现在努力在数据结构、算法方面填坑。在工作中首先是需求然后是可行性再然后解决方案最后是技术选择。技术不是最重要的，也不是最需要深究的。 ",
+			"body": "三年开发经验。 最先接触的框架是SSH，没在实际项目中使用过，后面一直使用的是SSM框架。现在工作中主要用到的是Spring Boot，以及Spring系列的微服务架构。干了这么久，意识到自己的欠缺，现在努力在数据结构、算法方面填坑。在工作中首先是需求然后是可行性再然后解决方案最后是技术选择。技术相对不是最重要的，解决用户痛点才是使命。 ",
 			"level": 6,
 			"year": 3.4
 		},
@@ -234,18 +234,24 @@
 		background-color: rgba(253, 51, 89, 0.6);
 	}
 
-	@media (max-width: 600px) {
+	@media (max-width: 840px) {
+		.home_left {
+			height: 70% !important;
+		}
+		.hone_right{
+			height: 30% !important;
+		}
 		.home_right_top {
-			width: 100% !important;
-			height: 20% !important;
+			width: 50% !important;
+			height: 60% !important;
 			font-size: 1.25rem !important;
 			margin-left: 0% !important;
 			margin-bottom: 5.25% !important;
 		}
 
 		.home_right_bottom {
-			width: 100% !important;
-			height: 20% !important;
+			width: 50% !important;
+			height: 60% !important;
 			margin-right: 0% !important;
 			margin-top: 5.25% !important;
 			font-size: 2rem;

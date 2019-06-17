@@ -2,7 +2,7 @@
 <template>
 	<div class="home_body" id="home_body">
 		<div class="home_top">
-			<div class="home_top_muen">=</div>
+			<div class="home_top_muen"></div>
 			<div class="home_top_name">iMaldwyn</div>
 			<div class="home_top_shuoming">您好！感谢与您的相遇！</div>
 		</div>
@@ -199,5 +199,18 @@
 	padding: 3px;
 	margin: 3px;
 	
+}
+@media (max-width: 600px) {
+	.home_bottom_itme_title{
+		/* font-size: 1.125rem; */
+	}
+	.home_bottom_itme_describe{
+		/* display: none !important; */
+	}
+	.home_bottom_itme{
+		flex-basis: 22% !important;
+		width: 22% !important;
+		height: 90px !important;
+	}
 }
 </style>

@@ -134,12 +134,26 @@
 		align-items: center;
 		align-content: center;
 	}
-	@media (min-width: 1280px) {
+	@media screen and (min-width: 841px){
 		.home_right_title {
-			font-size: 18px !important;
+			font-size: 16px !important;
+			
+		}
+		.home_left{
+			flex-basis: 50% !important;
+			width: 50% !important;
+			height: 100% !important;
+			padding-left: 5% !important;
+			padding-top: 15% !important;
+		}
+		.hone_right {
+			flex-basis: 50% !important;
+			width: 50% !important;
+			height: 100% !important;
+			padding-left: 0.9375rem !important;
 		}
 	}
-	@media (max-width: 840px) {
+	@media screen and (min-width: 601px) and (max-width: 840px) {
 		.home_left {
 			flex-basis: 100% !important;
 			width: 100% !important;
@@ -147,19 +161,65 @@
 			padding-top: 0px !important;
 			align-content: center !important;
 		}
-
+		
 		.hone_right {
 			flex-basis: 100% !important;
 			width: 100% !important;
 			height: 65% !important;
 		}
-
+		
 		.home_left_title {
-
-			transform: scale(1, 1.25) !important;
-			line-height: 18px !important;
-			font-size: 1.125rem !important;
-
+		
+			transform: scale(1, 1.125) !important;
+			line-height: 24px !important;
+			font-size: 1.75rem !important;
+		
+		}
+	}
+	@media screen and  (max-width: 600px) {
+		.home_left {
+			flex-basis: 100% !important;
+			width: 100% !important;
+			height: 25% !important;
+			padding-top: 0px !important;
+			align-content: center !important;
+		}
+		
+		.hone_right {
+			flex-basis: 100% !important;
+			width: 100% !important;
+			height: 65% !important;
+		}
+		
+		.home_left_title {
+		
+			transform: scale(1, 1.125) !important;
+			line-height: 30px !important;
+			font-size: 2rem !important;
+		
+		}
+	}
+	@media screen and  (max-width: 340px) {
+		.home_left {
+			flex-basis: 100% !important;
+			width: 100% !important;
+			height: 34% !important;
+			padding-top: 0px !important;
+			align-content: center !important;
+		}
+		
+		.hone_right {
+			flex-basis: 100% !important;
+			width: 100% !important;
+			height: 65% !important;
+		}
+		
+		.home_left_title {
+		
+			transform: scale(1, 1.125) !important;
+			line-height: 28px !important;
+			font-size: 1.7rem !important;
+		
 		}
 	}
 
