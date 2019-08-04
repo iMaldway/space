@@ -2,7 +2,12 @@
 	<div id="app">
 		<div class="home">
 			<div v-if="backApp" class="home_top_muen" @click="backOf()">
-				<</div> <div class="home_egg" id="home_egg">
+				<</div> 
+			<div class="home_egg" id="home_egg">
+				<vue-particles v-show="particlesBoo" color="#666" :particleOpacity="0.7" :particlesNumber="60" shapeType="circle" :particleSize="4"
+				 linesColor="#999" :linesWidth="1" :lineLinked="true" :lineOpacity="0.4" :linesDistance="200" :moveSpeed="2"
+				 :hoverEffect="true" hoverMode="grab" :clickEffect="true" clickMode="push" class="home_egg_particles">
+				</vue-particles>
 					<transition name="fade">
 						<router-view></router-view>
 					</transition>
@@ -24,6 +29,7 @@
 		data() {
 			return {
 				backApp: false,
+				particlesBoo:true
 
 			}
 		},
@@ -32,11 +38,19 @@
 		},
 		watch: {
 			$route(to, from) {
-				console.log(to.path);
 				if (to.path != "/") {
 					this.backApp = true;
 				} else {
 					this.backApp = false;
+					this.particlesBoo = true;
+				}
+				let src = to.path.split("/");
+				if(src.length>1 && src[1] != ""){
+					if(src[1] == "world"){
+						this.particlesBoo = false;
+					}else{
+						this.particlesBoo = true;
+					}
 				}
 			}
 		},
@@ -44,6 +58,7 @@
 			backOf: () => {
 				if (window.location.pathname == "/" && window.location.hash == "#/") {
 					this.backApp = false;
+					this.particlesBoo = true;
 					return;
 				} else {
 					window.history.back();
@@ -86,7 +101,11 @@
 	body {
 		background-color: #5ca9ff;
 	}
-
+	.home_egg_particles{
+		width: 100%;
+		height: 100%;
+		/* z-index: -1; */
+	}
 	.home_top_muen {
 		cursor: pointer;
 		color: #000000 !important;
@@ -134,6 +153,7 @@
 			height: 100% !important;
 			border: 0px solid #b6c1c7 !important;
 			border-radius: 0px !important;
+			
 		}
 
 		.home_egg_botom {
@@ -164,7 +184,7 @@
 		justify-content: center;
 		align-items: center;
 		align-content: center;
-		background-color: #FFFFFF;
+		background-color: #FFFFFF !important;
 		position: relative;
 		width: 100%;
 		height: 90%;

@@ -6,30 +6,32 @@
 			<div class="home_top_shuoming">Thank you for meeting you.</div>
 		</div>
 		<div class="home_bottom">
-			<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to bottom right,#fdd819, #e80505);"
-			 to="/photography">
-				<div class="home_bottom_itme_title">
-					摄影
-				</div>
-				<div class="home_bottom_itme_describe">
-					抓下这世界稍瞬即逝的美好
-				</div>
-			</router-link>
-			<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to bottom right,#abdcff, #0396ff);"
-			 to="/home">
-				<div class="home_bottom_itme_title">专业</div>
-				<div class="home_bottom_itme_describe">是时候展现真正的实力了</div>
-			</router-link>
-			<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to bottom right,#fdeb71, #f8d800);"
-			 :to="'/world/'+mapHeight">
-				<div class="home_bottom_itme_title">视界</div>
-				<div class="home_bottom_itme_describe">诗与远方的目的地是大海与花</div>
-			</router-link>
-			<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to bottom right,#81fbb8, #28c76f);"
-			 to="/about">
-				<div class="home_bottom_itme_title">关于</div>
-				<div class="home_bottom_itme_describe">你想知道的更多的,更好的</div>
-			</router-link>
+			<div class="home_botom_title_body">
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to bottom right,#fdd819, #e80505);"
+				 to="/photography">
+					<div class="home_bottom_itme_title">
+						摄影
+					</div>
+					<div class="home_bottom_itme_describe">
+						抓下这世界稍瞬即逝的美好
+					</div>
+				</router-link>
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to bottom right,#abdcff, #0396ff);"
+				 to="/home">
+					<div class="home_bottom_itme_title">专业</div>
+					<div class="home_bottom_itme_describe">是时候展现真正的实力了</div>
+				</router-link>
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to bottom right,#fdeb71, #f8d800);"
+				 :to="'/world/'+mapHeight">
+					<div class="home_bottom_itme_title">视界</div>
+					<div class="home_bottom_itme_describe">诗与远方的目的地是大海与花</div>
+				</router-link>
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to bottom right,#81fbb8, #28c76f);"
+				 to="/about">
+					<div class="home_bottom_itme_title">关于</div>
+					<div class="home_bottom_itme_describe">你想知道的更多的,更好的</div>
+				</router-link>
+			</div>
 			<div class="friendship_links">
 				<a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" class="assembly ui-link">阮一峰</a>
 				<a href="http://www.runoob.com/css3/css3-transitions.html" class="assembly ui-link">菜鸟教程</a>
@@ -109,7 +111,16 @@
 		align-items: flex-start;
 		align-content: space-between;
 	}
-
+	.home_botom_title_body{
+		width: 100%;
+		display: flex;
+		text-align: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: flex-start;
+		align-content: center;
+	}
 	.home_top div {
 		display: flex;
 		flex-basis: 100%;
@@ -155,7 +166,7 @@
 		flex-basis: 20%;
 		width: 20%;
 		height: 120px;
-		margin-left: 3%;
+		margin: 2%;
 		/* border-radius: 0.1875rem; */
 		/* border: 2px solid #a2b0b8; */
 	}
@@ -235,7 +246,9 @@
 	}
 	@media screen and (min-width: 900px) {
 		.home_bottom_itme {
-			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.13) !important;
+			max-height: 8.75rem !important;
+			min-height: 6.25rem !important;
+			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.1) !important;
 		}
 		.home_bottom_itme:hover{
 			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0) !important;
@@ -251,9 +264,15 @@
 		}
 
 		.home_bottom_itme {
-			flex-basis: 22% !important;
-			width: 22% !important;
-			height: 90px !important;
+			margin: 1% !important;
+			flex-basis: 32% !important;
+			min-width: 7.5rem !important;
+			/* height: 120px !important; */
+			max-height: 8.75rem !important;
+			min-height: 6.25rem !important;
+		}
+		.home_botom_title_body{
+			
 		}
 	}
 </style>
