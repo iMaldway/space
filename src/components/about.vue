@@ -2,7 +2,7 @@
 	<div class="home_body" id="home_about_body">
 		<div class="home_left">
 			<div class="home_left_title">
-				Mr. MALDWN
+				Mr. MALDWAY
 			</div>
 			<div class="home_left_title">
 				GENDER MALE

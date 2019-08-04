@@ -2,7 +2,7 @@
 	<div class="home_body" id="home_body">
 		<div class="home_top">
 			<div class="home_top_muen"></div>
-			<div class="home_top_name">iMaldwyn</div>
+			<div class="home_top_name">iMaldway</div>
 			<div class="home_top_shuoming">Thank you for meeting you.</div>
 		</div>
 		<div class="home_bottom">
