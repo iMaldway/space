@@ -6,7 +6,7 @@
 		</div>
 		<div class="home_bottom">
 			<div class="home_botom_title_body">
-				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(253, 235, 25, 0.8), rgba(232, 5, 173, 0.8))"
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(253, 235, 25, 0.9), rgba(232, 5, 173, 0.9))"
 				 to="/photography">
 					<div class="home_bottom_itme_title">
 						摄影
@@ -15,17 +15,17 @@
 						抓下这世界稍瞬即逝的美好
 					</div>
 				</router-link>
-				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(171, 236, 255, 0.8), rgba(123, 3, 255, 0.8))"
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(171, 236, 255, 0.9), rgba(123, 3, 255, 0.9))"
 				 to="/home">
 					<div class="home_bottom_itme_title">专业</div>
 					<div class="home_bottom_itme_describe">是时候展现真正的实力了</div>
 				</router-link>
-				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(251, 157, 196, 0.8), rgba(248, 216, 0, 0.8))"
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(251, 157, 196, 0.9), rgba(248, 216, 0, 0.9))"
 				 :to="'/world/'+mapHeight">
 					<div class="home_bottom_itme_title">视界</div>
 					<div class="home_bottom_itme_describe">诗与远方的目的地是大海与花</div>
 				</router-link>
-				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(129, 251, 184, 0.8), rgba(40, 199, 177, 0.8))"
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(129, 251, 184, 0.9), rgba(40, 199, 177, 0.9))"
 				 to="/about">
 					<div class="home_bottom_itme_title">关于</div>
 					<div class="home_bottom_itme_describe">你想知道的更多的,更好的</div>
