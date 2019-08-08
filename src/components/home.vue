@@ -211,7 +211,7 @@
 	.solid {
 		width: 35px;
 		height: 35px;
-		background-color: #666666;
+		background-color: rgba(102, 102, 102, 0.9);
 		cursor: pointer;
 		font-size: 18px;
 		color: #FFFFFF;
@@ -220,7 +220,7 @@
 	.home_right_top {
 		width: 70%;
 		height: 30%;
-		background-color: #000000;
+		background-color: rgba(0, 0, 0, 0.9);
 		color: #FFFFFF;
 		font-size: 2rem;
 		margin-left: 30%;

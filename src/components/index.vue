@@ -1,13 +1,12 @@
 <template>
 	<div class="home_body" id="home_body">
 		<div class="home_top">
-			<div class="home_top_muen"></div>
 			<div class="home_top_name">iMaldway</div>
 			<div class="home_top_shuoming">Thank you for meeting you.</div>
 		</div>
 		<div class="home_bottom">
 			<div class="home_botom_title_body">
-				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to bottom right,#fdd819, #e80505);"
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(253, 235, 25, 0.8), rgba(232, 5, 173, 0.8))"
 				 to="/photography">
 					<div class="home_bottom_itme_title">
 						摄影
@@ -16,17 +15,17 @@
 						抓下这世界稍瞬即逝的美好
 					</div>
 				</router-link>
-				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to bottom right,#abdcff, #0396ff);"
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(171, 236, 255, 0.8), rgba(123, 3, 255, 0.8))"
 				 to="/home">
 					<div class="home_bottom_itme_title">专业</div>
 					<div class="home_bottom_itme_describe">是时候展现真正的实力了</div>
 				</router-link>
-				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to bottom right,#fdeb71, #f8d800);"
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(251, 157, 196, 0.8), rgba(248, 216, 0, 0.8))"
 				 :to="'/world/'+mapHeight">
 					<div class="home_bottom_itme_title">视界</div>
 					<div class="home_bottom_itme_describe">诗与远方的目的地是大海与花</div>
 				</router-link>
-				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to bottom right,#81fbb8, #28c76f);"
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(129, 251, 184, 0.8), rgba(40, 199, 177, 0.8))"
 				 to="/about">
 					<div class="home_bottom_itme_title">关于</div>
 					<div class="home_bottom_itme_describe">你想知道的更多的,更好的</div>
@@ -38,7 +37,7 @@
 				<a href="https://www.awesomes.cn/rank?sort=trend" class="assembly ui-link">前端100</a>
 				<a href="https://cn.vuejs.org/" class="assembly ui-link">VUE</a>
 				<a href="http://www.cssmoban.com/" class="assembly ui-link">模版之家</a>
-				<a href="https://ant.design/index-cn" class="assembly ui-link">参阅了底部设计</a>
+				<a href="https://vue-particles.netlify.com/" class="assembly ui-link">粒子效果</a>
 				<a href="http://echarts.baidu.com/" class="assembly ui-link">图表来自Echarts</a>
 				<a href="https://dribbble.com">灵感来自于此</a>
 				<a href="https://996.icu" class="ui-link">
@@ -87,7 +86,7 @@
 
 	.home_top {
 		width: 100%;
-		height: 40%;
+		height: 36%;
 		padding: 10px;
 		display: flex;
 		text-align: center;
@@ -99,10 +98,10 @@
 	}
 
 	.home_bottom {
-
 		width: 100%;
-		height: 60%;
-		padding: 10px;
+		height: 64%;
+		padding-left: 0.625rem;
+		padding-right: 0.625rem;
 		display: flex;
 		text-align: center;
 		flex-direction: row;
@@ -170,12 +169,13 @@
 		/* border-radius: 0.1875rem; */
 		/* border: 2px solid #a2b0b8; */
 	}
-
-	.home_bottom_itme:hover {
-		/* border: 2px solid #FFFFFF; */
+	.home_bottom_itme:hover >.home_bottom_itme_title{
+		font-size:2.5rem;
+	}
+	.home_bottom_itme:hover  {
 		background-color: #666666;
 		color: #FFFFFF;
-		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.13);
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.13);
 	}
 
 	.home_bottom_itme:hover .home_bottom_itme_title {
@@ -248,10 +248,10 @@
 		.home_bottom_itme {
 			max-height: 8.75rem !important;
 			min-height: 6.25rem !important;
-			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.1) !important;
+			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1) !important;
 		}
 		.home_bottom_itme:hover{
-			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0) !important;
+			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0) !important;
 		}
 	}
 	@media (max-width: 600px) {
