@@ -2,15 +2,18 @@
 	<div id="app">
 		<div class="home">
 			<div v-if="backApp" class="home_top_muen" @click="backOf()">
-				<</div> 
-			<div class="home_egg" id="home_egg">
-				<vue-particles v-show="particlesBoo" color="#666" :particleOpacity="0.7" :particlesNumber="60" shapeType="circle" :particleSize="4"
-				 linesColor="#999" :linesWidth="1" :lineLinked="true" :lineOpacity="0.4" :linesDistance="200" :moveSpeed="2"
-				 :hoverEffect="true" hoverMode="grab" :clickEffect="true" clickMode="push" class="home_egg_particles">
-				</vue-particles>
-					<transition name="fade">
-						<router-view></router-view>
-					</transition>
+				<
+			</div> 
+			<div class="home_tracing">
+				<div class="home_egg" id="home_egg">
+					<vue-particles v-show="particlesBoo" color="#666" :particleOpacity="0.7" :particlesNumber="60" shapeType="circle" :particleSize="4"
+					 linesColor="#999" :linesWidth="1" :lineLinked="true" :lineOpacity="0.4" :linesDistance="200" :moveSpeed="2"
+					 :hoverEffect="true" hoverMode="grab" :clickEffect="true" clickMode="push" class="home_egg_particles">
+					</vue-particles>
+						<transition name="fade">
+							<router-view></router-view>
+						</transition>
+				</div>
 			</div>
 			<div class="home_egg_botom">
 				<div class="home_egg_botom_button" @click="backOf()">
@@ -100,11 +103,12 @@
 	html,
 	body {
 		background-color: #5ca9ff;
+		margin: 0 auto;
+		box-sizing: border-box;
 	}
 	.home_egg_particles{
 		width: 100%;
 		height: 100%;
-		/* z-index: -1; */
 	}
 	.home_top_muen {
 		cursor: pointer;
@@ -136,7 +140,11 @@
 		.home_top_muen {
 			display: inherit !important;
 		}
-
+		.home_tracing{
+			height: 100% !important;
+			border-radius: 0px !important;
+			border: 0px solid #b6c1c7 !important;
+		}
 		.home {
 			top: 0% !important;
 			bottom: 0% !important;
@@ -162,22 +170,30 @@
 	}
 
 	.home {
-		z-index: 99;
 		position: fixed;
 		box-sizing: border-box;
 		top: 10%;
 		bottom: 10%;
 		left: 15%;
 		right: 15%;
+		height: auto;
 		padding-top: 15px;
 		padding-left: 15px;
 		padding-right: 15px;
 		background-color: #000000;
 		border-radius: 25px;
 		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+		overflow-y: hidden;
 	}
-
+	.home_tracing{
+		width: 100%;
+		height: calc(100% - 50px );
+		box-sizing: border-box;
+		overflow-y: hidden;
+		border-radius: 15px;
+	}
 	.home_egg {
+		box-sizing: border-box;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -187,15 +203,15 @@
 		background-color: #FFFFFF !important;
 		position: relative;
 		width: 100%;
-		height: 90%;
-		border: 2px solid #b6c1c7;
+		height: 100%;
 		border-radius: 15px;
 		overflow: hidden;
+		
 	}
 
 	.home_egg_botom {
 		position: relative;
-		height: 10%;
+		height: 50px;
 		display: flex;
 		justify-content: center;
 		align-items: center;

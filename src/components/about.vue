@@ -158,6 +158,7 @@
 			flex-basis: 100% !important;
 			width: 100% !important;
 			height: 35% !important;
+			min-height: 340px !important;
 			padding-top: 0px !important;
 			align-content: center !important;
 		}
@@ -181,6 +182,7 @@
 			flex-basis: 100% !important;
 			width: 100% !important;
 			height: 25% !important;
+			min-height: 140px !important;
 			padding-top: 0px !important;
 			align-content: center !important;
 		}

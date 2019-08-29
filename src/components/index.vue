@@ -72,7 +72,7 @@
 		bottom: 0px;
 		overflow-y: auto;
 		width: 100%;
-		height: auto;
+		height: 100%;
 		display: flex;
 		text-align: center;
 		flex-direction: row;
@@ -85,8 +85,11 @@
 	}
 
 	.home_top {
+		top: 0px;
+		position: relative;
 		width: 100%;
 		height: 36%;
+		min-height: 140px;
 		padding: 10px;
 		display: flex;
 		text-align: center;
