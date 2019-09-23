@@ -6,8 +6,8 @@
 			</div> 
 			<div class="home_tracing">
 				<div class="home_egg" id="home_egg">
-					<vue-particles v-show="particlesBoo" color="#666" :particleOpacity="0.7" :particlesNumber="60" shapeType="circle" :particleSize="4"
-					 linesColor="#999" :linesWidth="1" :lineLinked="true" :lineOpacity="0.4" :linesDistance="200" :moveSpeed="2"
+					<vue-particles v-show="particlesBoo" color="#505668" :particleOpacity="0.7" :particlesNumber="60" shapeType="circle" :particleSize="4"
+					 linesColor="#dad7d7" :linesWidth="1" :lineLinked="true" :lineOpacity="0.4" :linesDistance="200" :moveSpeed="2"
 					 :hoverEffect="true" hoverMode="grab" :clickEffect="true" clickMode="push" class="home_egg_particles">
 					</vue-particles>
 						<transition name="fade">
@@ -102,9 +102,15 @@
 
 	html,
 	body {
-		background-color: #5ca9ff;
 		margin: 0 auto;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
 		box-sizing: border-box;
+	}
+	body{
+		background: linear-gradient(to right bottom, rgba(255, 210, 111, 0.6), rgba(54, 119, 255, 0.6));
+		/* filter:blur(15px); */
 	}
 	.home_egg_particles{
 		width: 100%;
@@ -114,12 +120,12 @@
 		cursor: pointer;
 		color: #000000 !important;
 		top: 0px;
-		z-index: 9999;
-		position: fixed;
+		z-index: 9;
+		position: relative;
 		text-align: center;
-		height: 55px;
-		width: 55px;
-		line-height: 55px;
+		height: 50px;
+		width: 50px;
+		line-height: 50px;
 		font-size: 2em;
 		color: #999999;
 		border-radius: 50%;
@@ -180,16 +186,17 @@
 		padding-top: 15px;
 		padding-left: 15px;
 		padding-right: 15px;
-		background-color: #000000;
+		background-color: #FFFFFF;
 		border-radius: 25px;
 		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 		overflow-y: hidden;
+		z-index: 999;
 	}
 	.home_tracing{
 		width: 100%;
 		height: calc(100% - 50px );
 		box-sizing: border-box;
-		overflow-y: hidden;
+		/* overflow-y: hidden; */
 		border-radius: 15px;
 	}
 	.home_egg {
@@ -205,7 +212,8 @@
 		width: 100%;
 		height: 100%;
 		border-radius: 15px;
-		overflow: hidden;
+		overflow-y: auto;
+		padding: 15px;
 		
 	}
 
@@ -250,6 +258,6 @@
 		border-radius: 3px;
 		height: 70%;
 		width: 70%;
-		border: 2px solid #e3e8ea;
+		border: 2px solid #b6c1c7;
 	}
 </style>

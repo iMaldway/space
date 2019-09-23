@@ -146,7 +146,7 @@
 
 	.head_mask {
 		width: 30%;
-		height: 25%;
+		height: 35%;
 		background-color: rgba(255, 255, 255, 0.8);
 		position: absolute;
 		z-index: 5;

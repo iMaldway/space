@@ -1097,4 +1097,7 @@
 </script>
 
 <style>
+	.home_egg{
+		overflow-y: hidden !important;
+	}
 </style>

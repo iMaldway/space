@@ -23,18 +23,21 @@
 				私密资料
 			</div>
 			<div class="home_right_title">
-				香蕉、西瓜、葡萄、榴莲、荔枝、龙眼、哈密瓜、芒果、黄桃、橙子
-				下厨、湘菜、川菜、米粉、
-				跑步、登山、游泳、钓鱼、
-				夜空、感受、
-				LOL、DNF、狼人杀、
-				摄影
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				喜欢的太多，厌恶的很少，这世间有趣的人不多，你愿不愿意来仔细了解下？
 			</div>
 			<div class="home_right_line"></div>
 			<div class="home_right_title">
-				&nbsp;&nbsp;
-				我喜欢摄影，也喜欢下厨，但我现在却是一名软件工程师。最喜欢的事物总是想着怎么样去得到，但却始终为生活所拘束。 我喜欢原野，一望无际，辽阔，安静，自由，想着有一天带着我的相机去旅行。
-				说到旅行，最想去的地方是西藏，最理想的方式是自驾，最好的年纪是24岁，我想，那将是一次朝圣之旅，心和身体同时都在路上。
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				如果生命只剩最后一天，你有什么想要去做的？去把想说的话说出来，去问想知道的答案，去弥补犯过的错，去爱一个也爱你的人？<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				当你真的这么想的时候，就发现在生命里还留下着很多遗憾。<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				幸运的是，还没到这么一天，你需要做的是过好每一天，好好爱自己好好爱别人。<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				而我，想成为一个温暖的人，可以给别人带来光和热，也想和一群温暖的人在一起，去感受他们的光和热。<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				心中有个结，想着有一天能去西藏化个缘，了一了过去的每个日子，去祈祷每一个未来的日子，不求顺风顺水，但求心安理得。
 			</div>
 			<div class="home_right_line"></div>
 			<div class="home_right_title">
@@ -74,17 +77,16 @@
 	.home_body {
 		position: absolute;
 		top: 0px;
-		bottom: 0px;
-		overflow-y: auto;
+		overflow:auto;
 		width: 100%;
-		height: auto;
+		height: 100%;
 		display: flex;
 		text-align: center;
 		flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: center;
 		align-items: flex-start;
-		align-content: center;
+		align-content: start;
 		padding: 15px;
 	}
 
@@ -113,7 +115,7 @@
 		flex-basis: 50%;
 		width: 50%;
 		height: 100%;
-		padding-left: 0.9375rem;
+		/* padding-left: 0.9375rem; */
 	}
 
 	.hone_right div {
@@ -123,6 +125,7 @@
 		justify-content: center;
 		align-items: center;
 		align-content: center;
+		text-align: left;
 	}
 
 	.home_left div {
@@ -181,16 +184,18 @@
 		.home_left {
 			flex-basis: 100% !important;
 			width: 100% !important;
-			height: 25% !important;
+			height: auto !important;
 			min-height: 140px !important;
 			padding-top: 0px !important;
 			align-content: center !important;
+			
 		}
 		
 		.hone_right {
 			flex-basis: 100% !important;
 			width: 100% !important;
-			height: 65% !important;
+			height: 100% !important;
+			
 		}
 		
 		.home_left_title {
@@ -205,7 +210,7 @@
 		.home_left {
 			flex-basis: 100% !important;
 			width: 100% !important;
-			height: 34% !important;
+			height: auto !important;
 			padding-top: 0px !important;
 			align-content: center !important;
 		}
@@ -213,7 +218,8 @@
 		.hone_right {
 			flex-basis: 100% !important;
 			width: 100% !important;
-			height: 65% !important;
+			height: 100% !important;
+			bottom: 0px;
 		}
 		
 		.home_left_title {
