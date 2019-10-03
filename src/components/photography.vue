@@ -92,7 +92,7 @@
 	}
 </script>
 
-<style>
+<style scoped="scoped">
 	.home_body {
 		position: absolute;
 		top: 0px;

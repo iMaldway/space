@@ -65,7 +65,7 @@
 	}
 </script>
 
-<style scoped>
+<style scoped="scoped">
 	.home_body {
 		position: absolute;
 		top: 0px;

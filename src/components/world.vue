@@ -966,10 +966,11 @@
 		},
 		data() {
 			return {
-				msg: 'Welcome to Your Vue.js App',
+				msg: '',
 				zoom: 13,
 				mapHeight: 400,
 				mapwidth: 400,
+				arrive:9
 			}
 		},
 		created: function() {
@@ -980,27 +981,37 @@
 			//
 			let main = document.getElementById('main');
 			var mapChart = this.$echarts.init(document.getElementById("main"));
+			let _this = this;
 			var convertData = function(data) {
 				var res = [];
+				let _arrive = 0;
 				for (var i = 0; i < data.length; i++) {
 					var geoCoord = geoCoordMap[data[i].name];
 					if (geoCoord) {
+						if(data[i].value>30){
+							_arrive++;
+						}
 						res.push({
 							name: data[i].name,
 							value: geoCoord.concat(data[i].value),
 						});
 					}
 				}
+				if(_arrive>_this.arrive){
+					_this.arrive = _arrive;
+				}
 				return res;
 			};
+			
 			var option = {
 				title: {
 					text: '旅行途径',
-					subtext: '人生是一场旅途，而我希望能遍布足迹',
+					subtext: '人生好比攀峰，路是越走越长',
 					left: 'center'
 				},
 				backgroundColor: '#fff',
 				tooltip: {
+					show:false,
 					trigger: "item"
 				},
 				geo: {
@@ -1060,7 +1071,7 @@
 						data: convertData(
 							data.sort(function(a, b) {
 								return b.value - a.value;
-							}).slice(0, 6)
+							}).slice(0, _this.arrive)
 						),
 						//标记大小，地图上的圆点
 						symbolSize: function(val) {
@@ -1096,7 +1107,7 @@
 	}
 </script>
 
-<style>
+<style scoped="scoped">
 	.home_egg{
 		overflow-y: hidden !important;
 	}

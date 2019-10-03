@@ -20,16 +20,16 @@
 		<div class="hone_right">
 			&nbsp;&nbsp;
 			<div class="hone_right_title_important">
-				私密资料
+				档案资料
 			</div>
 			<div class="home_right_title">
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				喜欢的太多，厌恶的很少，这世间有趣的人不多，你愿不愿意来仔细了解下？
+				喜欢的太多，厌恶的很少，这世间有趣的人不多，你要不要来分辨一下？
 			</div>
 			<div class="home_right_line"></div>
 			<div class="home_right_title">
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				如果生命只剩最后一天，你有什么想要去做的？去把想说的话说出来，去问想知道的答案，去弥补犯过的错，去爱一个也爱你的人？<br>
+				如果生命只剩最后一天，你有什么想要去做的？去把想说的话说出来？去问想知道的答案？去弥补犯过的错？去爱一个也爱你的人？<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;
 				当你真的这么想的时候，就发现在生命里还留下着很多遗憾。<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;
@@ -37,7 +37,7 @@
 				&nbsp;&nbsp;&nbsp;&nbsp;
 				而我，想成为一个温暖的人，可以给别人带来光和热，也想和一群温暖的人在一起，去感受他们的光和热。<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				心中有个结，想着有一天能去西藏化个缘，了一了过去的每个日子，去祈祷每一个未来的日子，不求顺风顺水，但求心安理得。
+				心中有个结，想着有一天能去西藏化个缘，了一了过去的每个日子，去祈祷每一个未来的日子，不求顺风顺水，但求随缘自在。
 			</div>
 			<div class="home_right_line"></div>
 			<div class="home_right_title">
@@ -73,7 +73,7 @@
 	}
 </script>
 
-<style>
+<style scoped="scoped">
 	.home_body {
 		position: absolute;
 		top: 0px;
