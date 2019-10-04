@@ -4,7 +4,7 @@
 			<div class="background" :style="{transform: 'translateX(' + (100 * index - pointer * 100) + '%)'}">
 				<img class="head-background" :src="item.img" />
 				<div class="head_mask">
-					<div style="font-size: 20px;flex-basis: 100%;">{{ item.title }}</div>
+					<div style="font-size: 20px;flex-basis:100%;font-weight:bolder;">{{ item.title }}</div>
 					<div>{{ item.slogan }}</div>
 				</div>
 			</div>
@@ -21,50 +21,50 @@
 				max: 0,
 				pointer: 0,
 				broadcast: [{
-						title: "Far sail！",
-						slogan: "The brave have no fear！",
+						title: "海天之间！",
+						slogan: "所谓诗和远方，到头来是水手跟码头。",
 						img: "static/haibian.jpeg",
 						homeColor: "#000000",
 						titleColor: "#FFFFFF"
 					},
 					{
-						title: "On the way！",
-						slogan: "Travel is an attitude and an art。",
+						title: "在路上！",
+						slogan: "旅行是一种态度和艺术。",
 						img: "static/dengta.jpeg",
 						homeColor: "#000000",
 						titleColor: "#FFFFFF"
 					}, {
-						title: "Great City",
-						slogan: "We are running on and on。",
+						title: "盛世之城",
+						slogan: "再多的梦想也填不满城市。",
 						img: "static/chengshi.jpeg",
 						homeColor: "#000000",
 						titleColor: "#FFFFFF"
 					},
 
 					{
-						title: "Between Coming and Going！",
-						slogan: "Don't stop, don't wait, go ahead! Forward!",
+						title: "来去之间",
+						slogan: "别停下，别等待，继续向前!",
 						img: "static/chezhan.png",
 						homeColor: "#FFFFFF",
 						titleColor: "#FFFFFF"
 					},
 					{
-						title: "Full-blown flowers",
-						slogan: "Flowers blooming like a piece of brocade。",
+						title: "盛开的花",
+						slogan: "繁花似锦觅安宁，闲云流水度此生。",
 						img: "static/meihua.png",
 						homeColor: "#000000",
 						titleColor: "#000000"
 					},
 					{
-						title: "Born in the sun",
-						slogan: "Life is like summer flowers, death is like autumn leaves。",
+						title: "向阳而生",
+						slogan: "生如夏花，死如秋叶。",
 						img: "static/xiaobaihua.jpeg",
 						homeColor: "#FFFFFF",
 						titleColor: "#FFFFFF"
 					},
 					{
-						title: "Delicate and charming",
-						slogan: "Rain and dew stain level add color, Chu and Chu touching camellia blossom。",
+						title: "精致迷人",
+						slogan: "雨露均沾平添色，楚楚动人茶花开。",
 						img: "static/chahua.png",
 						homeColor: "#FFFFFF",
 						titleColor: "#FFFFFF"
@@ -176,8 +176,8 @@
 	* */
 	@media screen and (min-width: 700px) and (max-width: 1200px) {
 		.head_mask {
-			width: 35% !important;
-			height: 35% !important;
+			width: 30% !important;
+			height: 30% !important;
 			background-color: rgba(255, 255, 255, 0.8) !important;
 		}
 	}

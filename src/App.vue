@@ -1,6 +1,13 @@
 <template>
 	<div id="app">
 		<div class="home">
+			<div class="home_audio" @click="changePlay">
+				<audio id="home_audio" autoplay loop >
+				  <source src="http://up_mp4.t57.cn/2015/1/05m/03/98032327569.m4a" type="audio/mpeg">
+					您的浏览器不支持 audio 元素。
+				</audio>
+				<span id="home_audio_div" >{{ audioExpress }}</span>
+			</div>
 			<div v-if="backApp" class="home_top_muen" @click="backOf()">
 				<
 			</div> 
@@ -32,12 +39,19 @@
 		data() {
 			return {
 				backApp: false,
-				particlesBoo:true
-
+				particlesBoo:true,
+				audioExpress:"●"
 			}
 		},
 		created: function() {
-
+			
+		},
+		mounted: function() {
+			var myAudio = document.getElementById("home_audio");
+			if(myAudio.readyState){
+				myAudio.autoplay = true;
+			}
+			
 		},
 		watch: {
 			$route(to, from) {
@@ -67,6 +81,22 @@
 					window.history.back();
 					this.backApp = true;
 				}
+			},
+			changePlay:()=>{
+				//home_audio_div
+				var myAudio = document.getElementById("home_audio");
+				var homeAudioDiv = document.getElementById("home_audio_div");
+				if(myAudio){
+					
+					if(!myAudio.paused){
+						myAudio.pause();
+						homeAudioDiv.innerText = "■";
+					}else{
+						myAudio.play();
+						homeAudioDiv.innerText = "▲";
+					}
+				}
+				
 			}
 		}
 	}
@@ -111,6 +141,25 @@
 	body{
 		background: linear-gradient(to right bottom, rgba(255, 210, 111, 0.6), rgba(54, 119, 255, 0.6));
 		/* filter:blur(15px); */
+	}
+	.home_audio{
+		cursor: pointer;
+		color: #FFFFFF !important;
+		top: 5%;
+		right: 5%;
+		z-index: 999;
+		position: absolute;
+		text-align: center;
+		height: 35px;
+		width: 35px;
+		line-height: 31px;
+		font-size: 1.75rem;
+		color: #999999;
+		background-color: #52140e;
+		border-radius: 50%;
+		display: inline-block;
+		animation: audioIn 3s infinite;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
 	}
 	.home_egg_particles{
 		width: 100%;
@@ -259,5 +308,14 @@
 		height: 70%;
 		width: 70%;
 		border: 2px solid #b6c1c7;
+		background-color: #b6c1c7;
+	}
+	@keyframes audioIn{
+		from{
+			transform: rotate(0deg);
+		}
+		to{
+			transform: rotate(360deg);
+		}
 	}
 </style>

@@ -2,7 +2,7 @@
 	<div class="home_body" id="home_body">
 		<div class="home_top">
 			<div class="home_top_name">iMaldway</div>
-			<div class="home_top_shuoming">Thank you for meeting you.</div>
+			<div class="home_top_shuoming">关山难越，谁悲失路之人？<br>萍水相逢，尽是他乡之客。</div>
 		</div>
 		<div class="home_bottom">
 			<div class="home_botom_title_body">

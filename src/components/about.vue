@@ -48,8 +48,8 @@
 			<div class="home_right_title" style="flex-basis: 100%;justify-content: flex-start;">
 				<a href="https://weibo.com/u/5632001274">新浪微博@哆啦没有先生</a>
 			</div>
-			<div class="home_right_title" style="flex-basis: 100%;justify-content: flex-start;">
-				中小屏幕（分辨率）体验更佳。
+			<div class="home_right_title" style="flex-basis: 100%;justify-content: flex-start;color: #fb325c;">
+				除图片外所有素材均来自网络，若侵犯了您的合法权益，请联系我，将在24小时内处理。
 			</div>
 		</div>
 	</div>
