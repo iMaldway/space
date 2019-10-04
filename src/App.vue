@@ -48,8 +48,12 @@
 		},
 		mounted: function() {
 			let myAudio = document.getElementById("home_audio");
-			if(myAudio.readyState){
-				myAudio.autoplay = true;
+			if(myAudio){
+				try{
+					myAudio.pause();
+				}catch(e){
+					console.log("等待用户点击播放");
+				}
 			}
 		},
 		watch: {
@@ -142,17 +146,15 @@
 	}
 	.home_audio{
 		cursor: pointer;
-		color: #FFFFFF !important;
+		color: #FFFFFF;
 		top: 5%;
 		right: 5%;
 		z-index: 999;
 		position: absolute;
-		text-align: center;
-		margin: 0 auto;
-		height: 35px;
-		width: 35px;
+		height: 30px;
+		width: 30px;
 		font-size: 18px;
-		color: #999999;
+		font-weight: bolder;
 		background-color: #52140e;
 		border-radius: 50%;
 		box-sizing: border-box;
@@ -160,11 +162,11 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: center;
-		align-items: flex-start;
-		align-content: space-between;
+		align-items: center;
+		align-content: initial;
 		animation: audioIn 3s infinite;
-		background: radial-gradient(white, green, blue);
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+		background: radial-gradient(white,  blue, green);
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
 	}
 	.home_audio_audio{
 		display: none;
@@ -173,11 +175,12 @@
 		box-sizing: border-box;
 		text-align: center;
 		margin: 0 auto;
-		height: 35px;
-		width: 35px;
-		line-height: 33px;
+		height: 30px;
+		width: 30px;
+		line-height: 30px;
 		vertical-align:top;
 		border-radius: 50%;
+		
 		
 	}
 	
