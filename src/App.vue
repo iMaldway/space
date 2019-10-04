@@ -13,8 +13,8 @@
 			</div> 
 			<div class="home_tracing">
 				<div class="home_egg" id="home_egg">
-					<vue-particles v-show="particlesBoo" color="#505668" :particleOpacity="0.7" :particlesNumber="60" shapeType="circle" :particleSize="4"
-					 linesColor="#dad7d7" :linesWidth="1" :lineLinked="true" :lineOpacity="0.4" :linesDistance="200" :moveSpeed="2"
+					<vue-particles v-show="particlesBoo" color="#505668" :particleOpacity="0.8" :particlesNumber="60" shapeType="circle" :particleSize="4"
+					 linesColor="#dad7d7" :linesWidth="1" :lineLinked="true" :lineOpacity="0.4" :linesDistance="250" :moveSpeed="2"
 					 :hoverEffect="true" hoverMode="grab" :clickEffect="true" clickMode="push" class="home_egg_particles">
 					</vue-particles>
 						<transition name="fade">
@@ -40,7 +40,7 @@
 			return {
 				backApp: false,
 				particlesBoo:true,
-				audioExpress:"▲"
+				audioExpress:">"
 			}
 		},
 		created: function() {
@@ -92,10 +92,10 @@
 				if(myAudio && myAudio.readyState){
 					if(!myAudio.paused){
 						myAudio.pause();
-						homeAudioDiv.innerText = "▲";
+						homeAudioDiv.innerText = ">";
 					}else{
 						myAudio.play();
-						//■
+						//■▲
 						homeAudioDiv.innerText = "=";
 					}
 				}
@@ -156,7 +156,7 @@
 		width: 30px;
 		font-size: 18px;
 		font-weight: bolder;
-		background-color: #4a120d;
+		background-color: #230a08;
 		border-radius: 50%;
 		box-sizing: border-box;
 		display: flex;
@@ -165,7 +165,7 @@
 		justify-content: center;
 		align-items: center;
 		align-content: initial;
-		/* animation: audioIn 3s infinite; */
+		animation: audioIn 3s infinite;
 		/* background: radial-gradient(white,  blue, green); */
 		/* background-color: #E3E8EA; */
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
