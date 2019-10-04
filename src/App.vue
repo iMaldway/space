@@ -1,12 +1,12 @@
 <template>
 	<div id="app">
 		<div class="home">
-			<div class="home_audio" @click="changePlay">
+			<div class="home_audio" @click="changePlay" title="点击播放">
 				<audio id="home_audio" class="home_audio_audio" autoplay loop >
 				  <source src="http://up_mp4.t57.cn/2015/1/05m/03/98032327569.m4a" type="audio/mpeg">
 					您的浏览器不支持 audio 元素。
 				</audio>
-				<div id="home_audio_div" class="home_audio_div" >{{ audioExpress }}</div>
+				<div id="home_audio_div" class="home_audio_div" title="点击播放" >{{ audioExpress }}</div>
 			</div>
 			<div v-if="backApp" class="home_top_muen" @click="backOf()">
 				<
@@ -40,18 +40,17 @@
 			return {
 				backApp: false,
 				particlesBoo:true,
-				audioExpress:"■"
+				audioExpress:"▲"
 			}
 		},
 		created: function() {
 			
 		},
 		mounted: function() {
-			var myAudio = document.getElementById("home_audio");
+			let myAudio = document.getElementById("home_audio");
 			if(myAudio.readyState){
 				myAudio.autoplay = true;
 			}
-			
 		},
 		watch: {
 			$route(to, from) {
@@ -86,14 +85,13 @@
 				//home_audio_div
 				var myAudio = document.getElementById("home_audio");
 				var homeAudioDiv = document.getElementById("home_audio_div");
-				if(myAudio){
-					
+				if(myAudio && myAudio.readyState){
 					if(!myAudio.paused){
 						myAudio.pause();
-						homeAudioDiv.innerText = "■";
+						homeAudioDiv.innerText = "▲";
 					}else{
 						myAudio.play();
-						homeAudioDiv.innerText = "▲";
+						homeAudioDiv.innerText = "■";
 					}
 				}
 				
