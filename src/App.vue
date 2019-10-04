@@ -6,7 +6,7 @@
 				  <source src="http://up_mp4.t57.cn/2015/1/05m/03/98032327569.m4a" type="audio/mpeg">
 					您的浏览器不支持 audio 元素。
 				</audio>
-				<span id="home_audio_div" >{{ audioExpress }}</span>
+				<span id="home_audio_div" class="home_audio_div" >{{ audioExpress }}</span>
 			</div>
 			<div v-if="backApp" class="home_top_muen" @click="backOf()">
 				<
@@ -40,7 +40,7 @@
 			return {
 				backApp: false,
 				particlesBoo:true,
-				audioExpress:"●"
+				audioExpress:"■"
 			}
 		},
 		created: function() {
@@ -150,17 +150,40 @@
 		z-index: 999;
 		position: absolute;
 		text-align: center;
+		margin: 0 auto;
 		height: 35px;
 		width: 35px;
-		line-height: 31px;
+		/* line-height: 31px; */
 		font-size: 1.75rem;
 		color: #999999;
 		background-color: #52140e;
 		border-radius: 50%;
-		display: inline-block;
+		/* display: inline-block; */
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
 		animation: audioIn 3s infinite;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+		/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1); */
 	}
+	.home_audio_div{
+		box-sizing: border-box;
+		display: flex;
+		text-align: center;
+		padding-bottom: 5px;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+		height: 35px;
+		width: 35px;
+		/* line-height: 30px; */
+	}
+	
 	.home_egg_particles{
 		width: 100%;
 		height: 100%;
