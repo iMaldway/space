@@ -151,7 +151,7 @@
 		margin: 0 auto;
 		height: 35px;
 		width: 35px;
-		font-size: 1.25rem;
+		font-size: 18px;
 		color: #999999;
 		background-color: #52140e;
 		border-radius: 50%;
@@ -175,7 +175,7 @@
 		margin: 0 auto;
 		height: 35px;
 		width: 35px;
-		line-height: 32.5px;
+		line-height: 33px;
 		vertical-align:top;
 		border-radius: 50%;
 		
