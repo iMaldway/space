@@ -95,7 +95,8 @@
 						homeAudioDiv.innerText = "▲";
 					}else{
 						myAudio.play();
-						homeAudioDiv.innerText = "■";
+						//■
+						homeAudioDiv.innerText = "=";
 					}
 				}
 				
@@ -155,7 +156,7 @@
 		width: 30px;
 		font-size: 18px;
 		font-weight: bolder;
-		background-color: #52140e;
+		background-color: #4a120d;
 		border-radius: 50%;
 		box-sizing: border-box;
 		display: flex;
@@ -164,9 +165,10 @@
 		justify-content: center;
 		align-items: center;
 		align-content: initial;
-		animation: audioIn 3s infinite;
-		background: radial-gradient(white,  blue, green);
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+		/* animation: audioIn 3s infinite; */
+		/* background: radial-gradient(white,  blue, green); */
+		/* background-color: #E3E8EA; */
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
 	}
 	.home_audio_audio{
 		display: none;

@@ -129,7 +129,7 @@
 	}
 
 	.home_top_name {
-		height: 30%;
+		height: calc(100% - 40%);
 		justify-content: center;
 		align-items: center;
 		font-size: 2.35rem;
@@ -152,7 +152,7 @@
 
 	.home_top_shuoming {
 		height: 20%;
-		color: #333333;
+		color: #636363;
 		font-size: 14px;
 		justify-content: center;
 		align-items: center;
