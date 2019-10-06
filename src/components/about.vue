@@ -137,31 +137,22 @@
 		align-items: center;
 		align-content: center;
 	}
-	@media screen and (min-width: 841px){
-		.home_right_title {
-			font-size: 16px !important;
-			
+	@media all and (max-height:26.25rem) {
+		.hone_right{
+			margin-top: 20%;
+			margin-bottom: 20%;
 		}
 		.home_left{
-			flex-basis: 50% !important;
-			width: 50% !important;
-			height: 100% !important;
-			padding-left: 5% !important;
-			padding-top: 15% !important;
-		}
-		.hone_right {
-			flex-basis: 50% !important;
-			width: 50% !important;
-			height: 100% !important;
-			padding-left: 0.9375rem !important;
+			min-height: 18rem !important;
 		}
 	}
-	@media screen and (min-width: 601px) and (max-width: 840px) {
+
+	@media screen and (min-width: 37.5625rem) and (max-width: 52.5rem) {
 		.home_left {
 			flex-basis: 100% !important;
 			width: 100% !important;
 			height: 35% !important;
-			min-height: 340px !important;
+			min-height: 21.25rem;
 			padding-top: 0px !important;
 			align-content: center !important;
 		}
@@ -180,7 +171,7 @@
 		
 		}
 	}
-	@media screen and  (max-width: 600px) {
+	@media screen and  (max-width: 37.5rem) {
 		.home_left {
 			flex-basis: 100% !important;
 			width: 100% !important;
@@ -194,7 +185,9 @@
 		.hone_right {
 			flex-basis: 100% !important;
 			width: 100% !important;
-			height: 100% !important;
+			height: auto;
+			margin-top: 5%;
+			margin-bottom: 15%;
 			
 		}
 		
@@ -206,7 +199,7 @@
 		
 		}
 	}
-	@media screen and  (max-width: 340px) {
+	@media screen and  (max-width: 21.25rem) {
 		.home_left {
 			flex-basis: 100% !important;
 			width: 100% !important;

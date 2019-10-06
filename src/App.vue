@@ -189,6 +189,7 @@
 	.home_egg_particles{
 		width: 100%;
 		height: 100%;
+		z-index: 0;
 	}
 	.home_top_muen {
 		cursor: pointer;

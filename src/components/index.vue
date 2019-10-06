@@ -1,7 +1,7 @@
 <template>
 	<div class="home_body" id="home_body">
 		<div class="home_top">
-			<div class="home_top_name">iMaldway</div>
+			<div class="home_top_name" data-content="iMaldway"></div>
 			<div class="home_top_shuoming">关山难越，谁悲失路之人？<br>萍水相逢，尽是他乡之客。</div>
 		</div>
 		<div class="home_bottom">
@@ -133,10 +133,18 @@
 		justify-content: center;
 		align-items: center;
 		font-size: 2.35rem;
-		/* font-weight: bold; */
-		background-image: -webkit-linear-gradient(bottom right, #ffdb01, #0e197d);
+	}
+	.home_top_name[data-content]::after{
+	    content:attr(data-content);
+	    display: block;
+	    position:absolute;
+		text-align: center;
+	    top:30%;
+	    z-index:2;
+		background-image: -webkit-gradient(linear,left top,right top,from(#ffdb01),to(#0e197d));
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+	    -webkit-mask-image:-webkit-gradient(linear, 0 0, 0 bottom, from(#ffdb01), to(#0e197d)));
 	}
 	.home_top_name:hover {
 		font-size: 2.5rem;

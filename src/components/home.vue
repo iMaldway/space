@@ -167,9 +167,11 @@
 	}
 
 	.home_left_title {
+		
 		font-size: 3rem;
 		height: auto;
 		color: #333333;
+		height: 15%;
 		transition: all 0.3s ease;
 	}
 
@@ -180,6 +182,7 @@
 		align-content: flex-start !important;
 		font-size: 16px;
 		color: #666666;
+		height: 70%;
 		transition: all 0.3s ease;
 	}
 
@@ -230,14 +233,29 @@
 		background-color: rgba(253, 51, 89, 0.6);
 	}
 
-	@media (max-width: 840px) {
+	@media all and (max-height:26.25rem) {
 		.home_left {
-			height: 70% !important;
+			/* margin-top: 50%; */
+			position: absolute;
+			/* top: 0%;x */
+			width: 100%;
+			height: 120% !important;
+		}
+		.hone_right {
+			position: relative;
+			top: 140%;
+			width: 100%;
+			height: 100% !important;
+		}
+	}
+	@media (max-width: 52.5rem) {
+		.home_left {
+			height: 70%;
 			flex-basis: 100% !important;
 		}
 
 		.hone_right {
-			height: 30% !important;
+			height: 30%;
 			flex-basis: 100% !important;
 		}
 
