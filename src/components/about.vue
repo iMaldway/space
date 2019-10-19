@@ -24,7 +24,7 @@
 			</div>
 			<div class="home_right_title">
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				喜欢的太多，厌恶的很少，这世间有趣的人不多，你要不要来分辨一下？
+				喜欢的太多，厌恶的不少，这世间有趣的人难得，你要不要来分辨一下？
 			</div>
 			<div class="home_right_line"></div>
 			<div class="home_right_title">

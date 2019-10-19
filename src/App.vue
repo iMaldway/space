@@ -1,26 +1,32 @@
 <template>
 	<div id="app">
 		<div class="home">
-			<div class="home_audio" @click="changePlay" title="点击播放">
-				<audio id="home_audio" class="home_audio_audio" autoplay loop >
-				  <source src="http://up_mp4.t57.cn/2015/1/05m/03/98032327569.m4a" type="audio/mpeg">
+			<div class="home_audio_inint" v-if="homeAudioInint" @click="changePlay">
+				<div class="fensug">
+					<div class="wavenum "><b id="denfenjs">{{ waveHeight }}%</b><tt>{{ waveNews }}</tt></div>
+					<div class="waven">
+						<div class="wave"  :style="{height: waveHeight+'%'}">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+			<div class="home_audio" @click="changePlay" id="change_play" title="点击播放" v-if="!homeAudioInint">
+				<audio id="home_audio" class="home_audio_audio" autoplay loop>
+					<source src="http://up_mp4.t57.cn/2015/1/05m/03/98032327569.m4a" type="audio/mpeg">
 					您的浏览器不支持 audio 元素。
 				</audio>
-				<div id="home_audio_div" class="home_audio_div" title="点击播放" >{{ audioExpress }}</div>
+				<div id="home_audio_div" class="home_audio_div" title="点击播放">{{ audioExpress }}</div>
 			</div>
 			<div v-if="backApp" class="home_top_muen" @click="backOf()">
-				<
-			</div> 
-			<div class="home_tracing">
-				<div class="home_egg" id="home_egg">
-					<vue-particles v-show="particlesBoo" color="#505668" :particleOpacity="0.8" :particlesNumber="60" shapeType="circle" :particleSize="4"
-					 linesColor="#dad7d7" :linesWidth="1" :lineLinked="true" :lineOpacity="0.4" :linesDistance="250" :moveSpeed="2"
-					 :hoverEffect="true" hoverMode="grab" :clickEffect="true" clickMode="push" class="home_egg_particles">
-					</vue-particles>
+				< </div> <div class="home_tracing">
+					<div class="home_egg" id="home_egg">
+						<vue-particles v-show="particlesBoo" color="#505668" :particleOpacity="0.8" :particlesNumber="60" shapeType="circle"
+						 :particleSize="4" linesColor="#dad7d7" :linesWidth="1" :lineLinked="true" :lineOpacity="0.4" :linesDistance="250"
+						 :moveSpeed="2" :hoverEffect="true" hoverMode="grab" :clickEffect="true" clickMode="push" class="home_egg_particles">
+						</vue-particles>
 						<transition name="fade">
 							<router-view></router-view>
 						</transition>
-				</div>
+					</div>
 			</div>
 			<div class="home_egg_botom">
 				<div class="home_egg_botom_button" @click="backOf()">
@@ -39,21 +45,49 @@
 		data() {
 			return {
 				backApp: false,
-				particlesBoo:true,
-				audioExpress:">"
+				particlesBoo: true,
+				audioExpress: ">",
+				homeAudioInint: true,
+				waveHeight:0,
+				waveNews:"初次加载中"
 			}
 		},
 		created: function() {
-			
+			let _homeAudioInint = this.getCookie("homeAudioInint");
+			if (_homeAudioInint && (_homeAudioInint == "false" || _homeAudioInint == false)) {
+				this.homeAudioInint = false;
+			} else {
+				this.audioExpress = "=";
+			}
+			console.log(this.audioExpress);
 		},
 		mounted: function() {
 			let myAudio = document.getElementById("home_audio");
-			if(myAudio){
-				try{
-					myAudio.pause();
-				}catch(e){
+			if (myAudio && myAudio.readyState) {
+				try {
+					// myAudio.pause();
+					if (!myAudio.paused) {
+						myAudio.pause();
+						this.audioExpress = ">";
+					} else {
+						myAudio.play();
+						this.audioExpress = "=";
+					}
+				} catch (e) {
+					this.audioExpress = ">";
 					console.log("等待用户点击播放");
 				}
+			}
+			if(this.homeAudioInint){
+				let _this = this;
+				
+				setInterval(function() {
+					if(_this.waveHeight<100){
+						_this.waveHeight++;
+					}else{
+						_this.waveNews = "点击继续";
+					}
+				}, 100);
 			}
 		},
 		watch: {
@@ -65,17 +99,17 @@
 					this.particlesBoo = true;
 				}
 				let src = to.path.split("/");
-				if(src.length>1 && src[1] != ""){
-					if(src[1] == "world"){
+				if (src.length > 1 && src[1] != "") {
+					if (src[1] == "world") {
 						this.particlesBoo = false;
-					}else{
+					} else {
 						this.particlesBoo = true;
 					}
 				}
 			}
 		},
 		methods: {
-			backOf: () => {
+			backOf: function() {
 				if (window.location.pathname == "/" && window.location.hash == "#/") {
 					this.backApp = false;
 					this.particlesBoo = true;
@@ -85,21 +119,65 @@
 					this.backApp = true;
 				}
 			},
-			changePlay:()=>{
+			changePlay: function() {
 				//home_audio_div
+				if(this.homeAudioInint && this.waveHeight<99){
+					return;
+				}
+				if (this.homeAudioInint) {
+					this.setCookie("homeAudioInint", "false");
+					this.homeAudioInint = false;
+				}
 				var myAudio = document.getElementById("home_audio");
-				var homeAudioDiv = document.getElementById("home_audio_div");
-				if(myAudio && myAudio.readyState){
-					if(!myAudio.paused){
+				if (myAudio && myAudio.readyState) {
+					if (!myAudio.paused) {
 						myAudio.pause();
-						homeAudioDiv.innerText = ">";
-					}else{
+						this.audioExpress = ">";
+					} else {
 						myAudio.play();
 						//■▲
-						homeAudioDiv.innerText = "=";
+						this.audioExpress = "=";
 					}
 				}
-				
+
+			},
+			//设置cookie
+			setCookie: function(cname, cvalue, exdays) {
+				var d = new Date();
+				d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+				var expires = "expires=" + d.toUTCString();
+				console.info(cname + "=" + cvalue + "; " + expires);
+				document.cookie = cname + "=" + cvalue + "; " + expires;
+				console.info(document.cookie);
+			},
+			//获取cookie
+			getCookie: function(cname) {
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				console.log("获取cookie,现在循环")
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1);
+					if (c.indexOf(name) != -1) {
+						return c.substring(name.length, c.length);
+					}
+				}
+				return "";
+			},
+			//清除cookie
+			clearCookie: function() {
+				this.setCookie("username", "", -1);
+			},
+			checkCookie: function() {
+				var user = this.getCookie("username");
+				if (user != "") {
+					alert("Welcome again " + user);
+				} else {
+					user = prompt("Please enter your name:", "");
+					if (user != "" && user != null) {
+						this.setCookie("username", user, 365);
+					}
+				}
 			}
 		}
 	}
@@ -141,11 +219,34 @@
 		overflow: hidden;
 		box-sizing: border-box;
 	}
-	body{
+
+	body {
 		background: linear-gradient(to right bottom, rgba(255, 210, 111, 0.6), rgba(54, 119, 255, 0.6));
 		/* filter:blur(15px); */
 	}
-	.home_audio{
+
+	.home_audio_inint {
+		cursor: pointer;
+		color: #FFFFFF;
+		top: 0%;
+		right: 0%;
+		z-index: 999;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		font-size: 18px;
+		font-weight: bolder;
+		background-color: rgba(35, 10, 8, 0.6);
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		align-content: initial;
+	}
+
+	.home_audio {
 		cursor: pointer;
 		color: #FFFFFF;
 		top: 5%;
@@ -156,7 +257,7 @@
 		width: 30px;
 		font-size: 18px;
 		font-weight: bolder;
-		background-color: #230a08;
+		background-color: rgba(35, 10, 8, 1);
 		border-radius: 50%;
 		box-sizing: border-box;
 		display: flex;
@@ -166,31 +267,33 @@
 		align-items: center;
 		align-content: initial;
 		animation: audioIn 3s infinite;
-		/* background: radial-gradient(white,  blue, green); */
-		/* background-color: #E3E8EA; */
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
 	}
-	.home_audio_audio{
+
+	.home_audio_audio {
 		display: none;
 	}
-	.home_audio_div{
+
+	.home_audio_div {
 		box-sizing: border-box;
 		text-align: center;
+		display: inline-block;
 		margin: 0 auto;
 		height: 30px;
 		width: 30px;
 		line-height: 30px;
-		vertical-align:top;
+		vertical-align: top;
 		border-radius: 50%;
-		
-		
+
+
 	}
-	
-	.home_egg_particles{
+
+	.home_egg_particles {
 		width: 100%;
 		height: 100%;
 		z-index: 0;
 	}
+
 	.home_top_muen {
 		cursor: pointer;
 		color: #000000 !important;
@@ -221,11 +324,13 @@
 		.home_top_muen {
 			display: inherit !important;
 		}
-		.home_tracing{
+
+		.home_tracing {
 			height: 100% !important;
 			border-radius: 0px !important;
 			border: 0px solid #b6c1c7 !important;
 		}
+
 		.home {
 			top: 0% !important;
 			bottom: 0% !important;
@@ -242,7 +347,7 @@
 			height: 100% !important;
 			border: 0px solid #b6c1c7 !important;
 			border-radius: 0px !important;
-			
+
 		}
 
 		.home_egg_botom {
@@ -267,13 +372,15 @@
 		overflow-y: hidden;
 		z-index: 999;
 	}
-	.home_tracing{
+
+	.home_tracing {
 		width: 100%;
-		height: calc(100% - 50px );
+		height: calc(100% - 50px);
 		box-sizing: border-box;
 		/* overflow-y: hidden; */
 		border-radius: 15px;
 	}
+
 	.home_egg {
 		box-sizing: border-box;
 		display: flex;
@@ -289,7 +396,7 @@
 		border-radius: 15px;
 		overflow-y: auto;
 		padding: 15px;
-		
+
 	}
 
 	.home_egg_botom {
@@ -336,12 +443,109 @@
 		border: 2px solid #b6c1c7;
 		background-color: #b6c1c7;
 	}
-	@keyframes audioIn{
-		from{
+
+	@keyframes audioIn {
+		from {
 			transform: rotate(0deg);
 		}
-		to{
+
+		to {
 			transform: rotate(360deg);
+		}
+	}
+
+	/*--------*/
+	.fensug {
+		width: 9.25rem;
+		height: 9.25rem;
+		background: #fff;
+		border: 9px #5576ac solid;
+		margin: 100px auto;
+		padding: 5px;
+		-webkit-border-radius: 25em;
+		-moz-border-radius: 25em;
+		border-radius: 25em;
+		overflow: hidden;
+		position: relative
+	}
+
+	.fensug .wavenum {
+		width: 9.25rem;
+		height: 9.25rem;
+		overflow: hidden;
+		-webkit-border-radius: 50%;
+		border-radius: 50%;
+		text-align: center;
+		display: table-cell;
+		vertical-align: middle;
+		position: absolute;
+		left: -10px;
+		top: -5px;
+		z-index: 6;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	.fensug .wavenum b {
+		color: #fff;
+		font-size: 30px;
+		text-align: center;
+		display: block;
+		position: relative;
+		z-index: 2;
+		line-height: 45px;
+	}
+
+	.fensug .wavenum tt {
+		color: #fff;
+		font-size: 16px;
+		text-align: center;
+		display: block;
+		position: relative;
+		z-index: 2;
+		font-weight: bold;
+		width: 124px;
+		border-top: 2px #fff solid;
+		margin: 3px auto;
+		line-height: 35px;
+	}
+
+
+	.waven {
+		/* width: 168px; */
+		height: 7.5rem;
+		border-radius: 25em;
+		background-color: #5576ac;
+		overflow: hidden;
+		position: relative;
+		z-index: 5;
+	}
+
+	.wave {
+		width: 25.5rem;
+		height: 80%;
+		position: absolute;
+		left: 0px;
+		bottom: 0px;
+		z-index: 4;
+		background: url(../static/wave.png) no-repeat;
+		animation: move_wave 1s linear infinite;
+		-webkit-animation: move_wave 1s linear infinite;
+	}
+
+	@keyframes move_wave {
+		0% {
+			transform: translateX(0)
+		}
+
+		50% {
+			transform: translateX(-25%)
+		}
+
+		100% {
+			transform: translateX(-50%)
 		}
 	}
 </style>
