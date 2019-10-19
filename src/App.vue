@@ -530,7 +530,7 @@
 		left: 0px;
 		bottom: 0px;
 		z-index: 4;
-		background: url(../static/wave.png) no-repeat;
+		background: url(../../space/static/wave.png) no-repeat;
 		animation: move_wave 1s linear infinite;
 		-webkit-animation: move_wave 1s linear infinite;
 	}
