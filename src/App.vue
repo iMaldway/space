@@ -8,8 +8,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="home">
-			
+		<div class="home" :style="{opacity: loadSpecialEffects}">
 			<div class="home_audio" @click="changePlay" id="change_play" title="点击播放" v-show="!homeAudioInint">
 				<audio id="home_audio" class="home_audio_audio" autoplay loop>
 					<source src="http://www.ytmp3.cn/down/49570.mp3" type="audio/mpeg">
@@ -106,6 +105,21 @@
 					} else {
 						this.particlesBoo = true;
 					}
+				}
+			}
+		},
+		computed:{
+			loadSpecialEffects:function(){
+				if(this.homeAudioInint){
+					if(this.waveHeight>90){
+						return this.waveHeight/100;
+					}else if(this.waveHeight>40){
+						return this.waveHeight/160-0.2;
+					}else{
+						return 0;
+					}
+				}else{
+					return 1;
 				}
 			}
 		},
