@@ -40,6 +40,7 @@
 				<a href="https://vue-particles.netlify.com/" class="assembly ui-link">粒子效果</a>
 				<a href="http://echarts.baidu.com/" class="assembly ui-link">图表来自Echarts</a>
 				<a href="https://dribbble.com">灵感来自于此</a>
+				<a href="http://www.ytmp3.cn/">扬天音乐</a>
 				<a href="https://996.icu" class="ui-link">
 					<img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu">
 				</a>

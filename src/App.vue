@@ -12,7 +12,7 @@
 			
 			<div class="home_audio" @click="changePlay" id="change_play" title="点击播放" v-show="!homeAudioInint">
 				<audio id="home_audio" class="home_audio_audio" autoplay loop>
-					<source src="http://up_mp4.t57.cn/2015/1/05m/03/98032327569.m4a" type="audio/mpeg">
+					<source src="http://www.ytmp3.cn/down/49570.mp3" type="audio/mpeg">
 					您的浏览器不支持 audio 元素。
 				</audio>
 				<div id="home_audio_div" class="home_audio_div" title="点击播放">{{ audioExpress }}</div>
