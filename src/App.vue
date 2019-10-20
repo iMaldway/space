@@ -1,15 +1,16 @@
 <template>
 	<div id="app">
-		<div class="home">
-			<div class="home_audio_inint" v-if="homeAudioInint" @click="changePlay">
-				<div class="fensug">
-					<div class="wavenum "><b id="denfenjs">{{ waveHeight }}%</b><tt>{{ waveNews }}</tt></div>
-					<div class="waven">
-						<div class="wave"  :style="{height: waveHeight+'%'}">&nbsp;</div>
-					</div>
+		<div class="home_audio_inint" v-show="homeAudioInint" @click="changePlay">
+			<div class="fensug">
+				<div class="wavenum "><b id="denfenjs">{{ waveHeight }}%</b><tt>{{ waveNews }}</tt></div>
+				<div class="waven">
+					<div class="wave"  :style="{height: waveHeight+'%'}">&nbsp;</div>
 				</div>
 			</div>
-			<div class="home_audio" @click="changePlay" id="change_play" title="点击播放" v-if="!homeAudioInint">
+		</div>
+		<div class="home">
+			
+			<div class="home_audio" @click="changePlay" id="change_play" title="点击播放" v-show="!homeAudioInint">
 				<audio id="home_audio" class="home_audio_audio" autoplay loop>
 					<source src="http://up_mp4.t57.cn/2015/1/05m/03/98032327569.m4a" type="audio/mpeg">
 					您的浏览器不支持 audio 元素。
@@ -370,7 +371,7 @@
 		border-radius: 25px;
 		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 		overflow-y: hidden;
-		z-index: 999;
+		z-index: 998;
 	}
 
 	.home_tracing {
