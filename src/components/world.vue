@@ -970,12 +970,14 @@
 				zoom: 13,
 				mapHeight: 400,
 				mapwidth: 400,
-				arrive:9
+				arrive:9,
+				proportion:0.12
 			}
 		},
 		created: function() {
-			this.mapHeight = this.$route.params.mapHeight - 20;
-			this.mapwidth = this.$route.params.mapHeight - 20;
+			let value = this.$route.params.mapHeight*this.proportion;
+			this.mapHeight = this.$route.params.mapHeight - value;
+			this.mapwidth = this.$route.params.mapHeight - value;
 		},
 		mounted: function() {
 			//
@@ -1109,6 +1111,6 @@
 
 <style scoped="scoped">
 	.home_egg{
-		overflow-y: hidden !important;
+		overflow: hidden !important;
 	}
 </style>

@@ -6,7 +6,7 @@
 		</div>
 		<div class="home_bottom">
 			<div class="home_botom_title_body">
-				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(253, 235, 25, 0.9), rgba(232, 5, 173, 0.9))"
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(253, 235, 25, 0.94), rgba(232, 5, 173, 1))"
 				 to="/photography">
 					<div class="home_bottom_itme_title">
 						摄影
@@ -15,17 +15,17 @@
 						抓下这世界稍瞬即逝的美好
 					</div>
 				</router-link>
-				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(171, 236, 255, 0.9), rgba(123, 3, 255, 0.9))"
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(171, 236, 255, 0.94), rgba(123, 3, 255, 1))"
 				 to="/home">
 					<div class="home_bottom_itme_title">专业</div>
 					<div class="home_bottom_itme_describe">是时候展现真正的实力了</div>
 				</router-link>
-				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(251, 157, 196, 0.9), rgba(248, 216, 0, 0.9))"
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(251, 157, 196, 0.94), rgba(248, 216, 0, 1))"
 				 :to="'/world/'+mapHeight">
 					<div class="home_bottom_itme_title">视界</div>
 					<div class="home_bottom_itme_describe">诗与远方的目的地是大海与花</div>
 				</router-link>
-				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(129, 251, 184, 0.9), rgba(40, 199, 177, 0.9))"
+				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(129, 251, 184, 0.94), rgba(40, 199, 177, 1))"
 				 to="/about">
 					<div class="home_bottom_itme_title">关于</div>
 					<div class="home_bottom_itme_describe">你想知道的更多的,更好的</div>
@@ -40,7 +40,7 @@
 				<a href="https://vue-particles.netlify.com/" class="assembly ui-link">粒子效果</a>
 				<a href="http://echarts.baidu.com/" class="assembly ui-link">图表来自Echarts</a>
 				<a href="https://dribbble.com">灵感来自于此</a>
-				<a href="http://www.ytmp3.cn/">扬天音乐</a>
+				<a href="https://music.163.com/">网易云音乐</a>
 				<a href="https://996.icu" class="ui-link">
 					<img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu">
 				</a>
@@ -176,9 +176,9 @@
 		align-items: center;
 		flex-basis: 20%;
 		width: 20%;
-		height: 120px;
+		height: 7.5rem;
 		margin: 2%;
-		/* border-radius: 0.1875rem; */
+		border-radius: 0.5rem;
 		/* border: 2px solid #a2b0b8; */
 	}
 	.home_bottom_itme:hover >.home_bottom_itme_title{
@@ -256,35 +256,43 @@
 		margin: 3px;
 
 	}
-	@media screen and (min-width: 900px) {
+	@media screen and  (min-width:87.5625rem ) {
 		.home_bottom_itme {
-			max-height: 8.75rem !important;
-			min-height: 6.25rem !important;
+			height: 8rem !important;
+			width: 18% !important;
+			flex-basis: 18% !important;
 			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1) !important;
+		}
+	}
+	@media screen and (min-width: 55.25rem) and (max-width: 87.5rem){
+		.home_bottom_itme {
+			height: 7.725rem !important;
+			width: 20% !important;
+			flex-basis: 20% !important;
+			box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.1) !important;
 		}
 		.home_bottom_itme:hover{
 			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0) !important;
 		}
 	}
-	@media (max-width: 600px) {
-		.home_bottom_itme_title {
-			/* font-size: 1.125rem; */
-		}
-
-		.home_bottom_itme_describe {
-			/* display: none !important; */
-		}
-
+	@media screen and (min-width: 37.5rem) and (max-width: 55.25rem){
 		.home_bottom_itme {
-			margin: 1% !important;
-			flex-basis: 32% !important;
-			min-width: 7.5rem !important;
-			/* height: 120px !important; */
-			max-height: 8.75rem !important;
-			min-height: 6.25rem !important;
+			height: 7rem !important;
+			width: 20% !important;
+			flex-basis: 20% !important;
+			box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.1) !important;
 		}
-		.home_botom_title_body{
-			
+		.home_bottom_itme:hover{
+			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0) !important;
+		}
+	}
+	@media (max-width: 37.5rem) {
+		.home_bottom_itme {
+			margin: 1.5% !important;
+			flex-basis: 31% !important;
+			/* width: 19% !important; */
+			height: 7.5rem !important;
+			border-radius: 0.2rem !important;
 		}
 	}
 </style>

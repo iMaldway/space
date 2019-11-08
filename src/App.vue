@@ -11,7 +11,7 @@
 		<div class="home" :style="{opacity: loadSpecialEffects}">
 			<div class="home_audio" @click="changePlay" id="change_play" title="点击播放" v-show="!homeAudioInint">
 				<audio id="home_audio" class="home_audio_audio" autoplay loop>
-					<source src="http://www.ytmp3.cn/down/49570.mp3" type="audio/mpeg">
+					<source src="http://music.163.com/song/media/outer/url?id=17863892.mp3" type="audio/mpeg">
 					您的浏览器不支持 audio 元素。
 				</audio>
 				<div id="home_audio_div" class="home_audio_div" title="点击播放">{{ audioExpress }}</div>
@@ -59,7 +59,7 @@
 			} else {
 				this.audioExpress = "=";
 			}
-			console.log(this.audioExpress);
+			
 		},
 		mounted: function() {
 			let myAudio = document.getElementById("home_audio");
@@ -169,7 +169,6 @@
 			getCookie: function(cname) {
 				var name = cname + "=";
 				var ca = document.cookie.split(';');
-				console.log("获取cookie,现在循环")
 				for (var i = 0; i < ca.length; i++) {
 					var c = ca[i];
 					while (c.charAt(0) == ' ') c = c.substring(1);
@@ -327,7 +326,7 @@
 
 	@media (max-width: 1400px) {
 		.home {
-			background-color: #FFFFFF !important;
+			background-color: #fdfdfd !important;
 		}
 
 		.home_egg_botom_button {
@@ -381,7 +380,7 @@
 		padding-top: 15px;
 		padding-left: 15px;
 		padding-right: 15px;
-		background-color: #FFFFFF;
+		background-color: #fdfdfd;
 		border-radius: 25px;
 		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 		overflow-y: hidden;
@@ -404,7 +403,7 @@
 		justify-content: center;
 		align-items: center;
 		align-content: center;
-		background-color: #FFFFFF !important;
+		background-color: #fdfdfd !important;
 		position: relative;
 		width: 100%;
 		height: 100%;
