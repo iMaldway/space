@@ -1011,7 +1011,7 @@
 					subtext: '人生好比攀峰，路是越走越长',
 					left: 'center'
 				},
-				backgroundColor: '#fff',
+				backgroundColor: '#fdfdfd',
 				tooltip: {
 					show:false,
 					trigger: "item"

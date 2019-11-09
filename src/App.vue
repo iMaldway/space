@@ -9,12 +9,12 @@
 			</div>
 		</div>
 		<div class="home" :style="{opacity: loadSpecialEffects}">
-			<div class="home_audio" @click="changePlay" id="change_play" title="点击播放" v-show="!homeAudioInint">
+			<div class="home_audio" @click="changePlay" id="change_play" :title="musicName" v-show="!homeAudioInint">
 				<audio id="home_audio" class="home_audio_audio" autoplay loop>
-					<source src="http://music.163.com/song/media/outer/url?id=17863892.mp3" type="audio/mpeg">
+					<source :src="musicURL" type="audio/mpeg">
 					您的浏览器不支持 audio 元素。
 				</audio>
-				<div id="home_audio_div" class="home_audio_div" title="点击播放">{{ audioExpress }}</div>
+				<div id="home_audio_div" class="home_audio_div" :title="musicName">{{ audioExpress }}</div>
 			</div>
 			<div v-if="backApp" class="home_top_muen" @click="backOf()">
 				< </div> <div class="home_tracing">
@@ -49,7 +49,16 @@
 				audioExpress: ">",
 				homeAudioInint: true,
 				waveHeight:0,
-				waveNews:"初次加载中"
+				waveNews:"初次加载中",
+				//Hero Trouble I'm In  สั่น（颤动） Is This Love
+				musicList:[
+				{"name":"Hero","code":"17863892"},
+				{"name":"Trouble I'm In","code":"29758362"},
+				{"name":"สั่น（颤动）","code":"28935319"},
+				{"name":"Is This Love","code":"29357332"},
+				{"name":"Havana","code":"494865824"}
+				],
+				musicIndex:0
 			}
 		},
 		created: function() {
@@ -59,7 +68,8 @@
 			} else {
 				this.audioExpress = "=";
 			}
-			
+			//随机一首歌曲
+			this.musicIndex =  Math.floor(Math.random()*this.musicList.length);
 		},
 		mounted: function() {
 			let myAudio = document.getElementById("home_audio");
@@ -121,6 +131,12 @@
 				}else{
 					return 1;
 				}
+			},
+			musicURL:function(){
+				return "http://music.163.com/song/media/outer/url?id="+this.musicList[this.musicIndex].code+".mp3";
+			},
+			musicName:function(){
+				return this.musicList[this.musicIndex].name;
 			}
 		},
 		methods: {
