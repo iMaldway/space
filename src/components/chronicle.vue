@@ -164,9 +164,9 @@
 	    position:absolute;
 		text-align: center;
 	    top:0%;
-		right: calc(0% - 0.45rem);
+		right:  -7px;
 	    z-index:2;
-		font-size: 1.25rem;
+		font-size: 20px;
 		color: #5576AC;
 	}
 	.link_right::after{
@@ -175,9 +175,9 @@
 	    position:absolute;
 		text-align: center;
 	    top:0%;
-		left: calc(0% - 0.45rem);
+		left: -7px;
 	    z-index:2;
-		font-size: 1.25rem;
+		font-size: 20px;
 		color: #5576AC;
 	}
 	.link_left{
