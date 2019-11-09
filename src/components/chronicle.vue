@@ -15,7 +15,11 @@
 				</div>
 			</div>
 		</template>
-		
+		<div class="chronicle_link" >
+			<div class="chronicle_link_row" >
+				
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -88,13 +92,14 @@
 <style scoped="scoped">
 	.chronicle{
 		z-index: 99;
-		top: calc(5% + 30px);
+		top: 5%;
 		padding: 0.625rem;
 		padding-bottom: 1.25rem;
-		margin-bottom: 1.25rem;
+		/* margin-bottom: 1.25rem; */
 		position: absolute;
 		width: 100%;
-		height: auto;
+		/* bottom: 10%; */
+		/* height: auto; */
 		box-sizing: border-box;
 		display: flex;
 		flex-direction: row;
@@ -108,8 +113,8 @@
 	.chronicle_circular{
 		cursor: pointer;
 		position: relative;
-		width: 2rem;
-		height: 2rem;
+		width: 1.75rem;
+		height: 1.75rem;
 		border-radius:50%;
 		border: 0.125rem solid #5576AC;
 		/* padding: 0.3125rem; */
@@ -123,8 +128,8 @@
 		margin-right: 2%;
 	}
 	.chronicle_circular_heart{
-		width: 1rem;
-		height: 1rem;
+		width: 0.75rem;
+		height: 0.75rem;
 		border-radius:50%;
 		background-color: #5576AC;
 	}
@@ -159,9 +164,9 @@
 	    position:absolute;
 		text-align: center;
 	    top:0%;
-		right: calc(0% - 8px);
+		right: calc(0% - 0.45rem);
 	    z-index:2;
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 		color: #5576AC;
 	}
 	.link_right::after{
@@ -170,9 +175,9 @@
 	    position:absolute;
 		text-align: center;
 	    top:0%;
-		left: calc(0% - 8px);
+		left: calc(0% - 0.45rem);
 	    z-index:2;
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 		color: #5576AC;
 	}
 	.link_left{
@@ -202,7 +207,7 @@
 	}
 	@media screen and  (min-width:87.5625rem ) {
 		.chronicle_circular{
-			margin-right: 4%;
+			margin-right: 4% !important;
 		}
 		.chronicle_link{
 			width: 60%;
@@ -212,6 +217,7 @@
 		}
 	}
 	@media screen and (min-width: 55.25rem) and (max-width: 87.5rem){
+		
 		.chronicle_link{
 			width: 74%;
 			margin-left: 12%;
@@ -220,6 +226,9 @@
 		}
 	}
 	@media screen and (min-width: 37.5rem) and (max-width: 55.25rem){
+		.chronicle_circular{
+			margin-right: 1% !important;
+		}
 		.chronicle_link{
 			width: 83%;
 			margin-left: 8%;
