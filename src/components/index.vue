@@ -16,9 +16,9 @@
 					</div>
 				</router-link>
 				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(171, 236, 255, 0.94), rgba(123, 3, 255, 1))"
-				 to="/home">
-					<div class="home_bottom_itme_title">专业</div>
-					<div class="home_bottom_itme_describe">是时候展现真正的实力了</div>
+				 to="/chronicle">
+					<div class="home_bottom_itme_title">纪年</div>
+					<div class="home_bottom_itme_describe">从哪里来，又要去哪</div>
 				</router-link>
 				<router-link tag="div" class="home_bottom_itme" style="background: linear-gradient(to right bottom, rgba(251, 157, 196, 0.94), rgba(248, 216, 0, 1))"
 				 :to="'/world/'+mapHeight">
@@ -38,12 +38,15 @@
 				<a href="https://cn.vuejs.org/" class="assembly ui-link">VUE</a>
 				<a href="http://www.cssmoban.com/" class="assembly ui-link">模版之家</a>
 				<a href="https://vue-particles.netlify.com/" class="assembly ui-link">粒子效果</a>
-				<a href="http://echarts.baidu.com/" class="assembly ui-link">图表来自Echarts</a>
-				<a href="https://dribbble.com">灵感来自于此</a>
+				<a href="http://echarts.baidu.com/" class="assembly ui-link">Echarts</a>
+				<a href="https://dribbble.com">灵感</a>
 				<a href="https://music.163.com/">网易云音乐</a>
 				<a href="https://996.icu" class="ui-link">
 					<img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu">
 				</a>
+				<router-link tag="a" class="assembly ui-link function_link" to="/home">
+					专业技能
+				</router-link>
 			</div>
 		</div>
 	</div>
@@ -255,6 +258,9 @@
 		padding: 3px;
 		margin: 3px;
 
+	}
+	.function_link{
+		background: linear-gradient(to right bottom, rgba(25, 169, 253, 1), rgba(232, 5, 173, 1));
 	}
 	@media screen and  (min-width:87.5625rem ) {
 		.home_bottom_itme {

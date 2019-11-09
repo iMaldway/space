@@ -5,6 +5,7 @@ import photography from '@/components/photography'
 import index from '@/components/index'
 import world from '@/components/world'
 import about from '@/components/about'
+import chronicle from '@/components/chronicle'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
 			path:'/about',
 			name:'about',
 			component:about
+		},
+		{
+			path:'/chronicle',
+			name:'chronicle',
+			component:chronicle
 		}
   ]
 })
