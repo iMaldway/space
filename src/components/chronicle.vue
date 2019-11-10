@@ -159,26 +159,30 @@
 		color: #FFFFFF;
 	}
 	.link_left::after{
-	    content:"●";
+	    content:"";
 	    display: block;
 	    position:absolute;
 		text-align: center;
-	    top:0%;
-		right:  -7px;
+	    top:50%;
+		right:  -0.375rem;
 	    z-index:2;
-		font-size: 20px;
-		color: #5576AC;
+		width: 0.625rem;
+		height: 0.625rem;
+		background-color: #5576AC;
+		border-radius:50%;
 	}
 	.link_right::after{
-	    content:"●";
+	    content:"";
 	    display: block;
 	    position:absolute;
 		text-align: center;
-	    top:0%;
-		left: -7px;
+	    top:50%;
+		left: -0.375rem;
 	    z-index:2;
-		font-size: 20px;
-		color: #5576AC;
+		width: 0.625rem;
+		height: 0.625rem;
+		background-color: #5576AC;
+		border-radius:50%;
 	}
 	.link_left{
 		text-align: right;
