@@ -10,7 +10,7 @@
 		</div>
 		<div class="home" :style="{opacity: loadSpecialEffects}">
 			<div class="home_audio" @click="changePlay" id="change_play" :title="musicName" v-show="!homeAudioInint">
-				<audio id="home_audio" class="home_audio_audio" autoplay loop>
+				<audio id="home_audio" class="home_audio_audio" autoplay @ended="audioEnded">
 					<source :src="musicURL" type="audio/mpeg">
 					您的浏览器不支持 audio 元素。
 				</audio>
@@ -72,25 +72,8 @@
 			this.musicIndex =  Math.floor(Math.random()*this.musicList.length);
 		},
 		mounted: function() {
-			let myAudio = document.getElementById("home_audio");
-			if (myAudio && myAudio.readyState) {
-				try {
-					// myAudio.pause();
-					if (!myAudio.paused) {
-						myAudio.pause();
-						this.audioExpress = ">";
-					} else {
-						myAudio.play();
-						this.audioExpress = "=";
-					}
-				} catch (e) {
-					this.audioExpress = ">";
-					console.log("等待用户点击播放");
-				}
-			}
 			if(this.homeAudioInint){
 				let _this = this;
-				
 				setInterval(function() {
 					if(_this.waveHeight<100){
 						_this.waveHeight++;
@@ -98,6 +81,8 @@
 						_this.waveNews = "点击继续";
 					}
 				}, 100);
+			}else{
+				this.changePlay();
 			}
 		},
 		watch: {
@@ -159,18 +144,33 @@
 					this.setCookie("homeAudioInint", "false");
 					this.homeAudioInint = false;
 				}
-				var myAudio = document.getElementById("home_audio");
-				if (myAudio && myAudio.readyState) {
-					if (!myAudio.paused) {
+				let myAudio = document.getElementById("home_audio");
+				if (myAudio) {
+					if(myAudio.readyState){
+						if (!myAudio.paused) {
+							myAudio.pause();
+							this.audioExpress = ">";
+						} else {
+							myAudio.src = this.musicURL;
+							myAudio.play();
+							//■▲
+							this.audioExpress = "=";
+							console.log("当前播放："+this.musicList[this.musicIndex].name);
+						}
+					}else{
 						myAudio.pause();
 						this.audioExpress = ">";
-					} else {
-						myAudio.play();
-						//■▲
-						this.audioExpress = "=";
 					}
 				}
-
+			},
+			audioEnded:function(){
+				// 不重复播放同一首歌
+				let _musicIndex =  Math.floor(Math.random()*this.musicList.length);
+				while(_musicIndex == this.musicIndex){
+					_musicIndex =  Math.floor(Math.random()*this.musicList.length);
+				}
+				this.musicIndex = _musicIndex;
+				this.changePlay();
 			},
 			//设置cookie
 			setCookie: function(cname, cvalue, exdays) {
@@ -179,7 +179,6 @@
 				var expires = "expires=" + d.toUTCString();
 				console.info(cname + "=" + cvalue + "; " + expires);
 				document.cookie = cname + "=" + cvalue + "; " + expires;
-				console.info(document.cookie);
 			},
 			//获取cookie
 			getCookie: function(cname) {
