@@ -82,8 +82,9 @@
 					}
 				}, 100);
 			}else{
-				this.changePlay();
+				this.waveHeight = 100;
 			}
+			this.changePlay();
 		},
 		watch: {
 			$route(to, from) {
@@ -136,31 +137,32 @@
 				}
 			},
 			changePlay: function() {
-				//home_audio_div
-				if(this.homeAudioInint && this.waveHeight<99){
+				let myAudio = document.getElementById("home_audio");
+				if(!myAudio){
 					return;
 				}
-				if (this.homeAudioInint) {
-					this.setCookie("homeAudioInint", "false");
-					this.homeAudioInint = false;
-				}
-				let myAudio = document.getElementById("home_audio");
-				if (myAudio) {
-					if(myAudio.readyState){
-						if (!myAudio.paused) {
+				if(this.homeAudioInint){
+					if(this.waveHeight<99){
+						//如果音频已暂停返回true，否则返回false
+						if (myAudio.paused) {
 							myAudio.pause();
 							this.audioExpress = ">";
-						} else {
-							myAudio.src = this.musicURL;
-							myAudio.play();
-							//■▲
-							this.audioExpress = "=";
-							console.log("当前播放："+this.musicList[this.musicIndex].name);
 						}
+						return;
 					}else{
-						myAudio.pause();
-						this.audioExpress = ">";
+						this.setCookie("homeAudioInint", "false");
+						this.homeAudioInint = false;
 					}
+				}
+				if (!myAudio.paused) {
+					myAudio.pause();
+					this.audioExpress = ">";
+				} else {
+					myAudio.src = this.musicURL;
+					myAudio.play();
+					//■▲
+					this.audioExpress = "=";
+					console.log("当前播放："+this.musicList[this.musicIndex].name);
 				}
 			},
 			audioEnded:function(){
@@ -177,7 +179,7 @@
 				var d = new Date();
 				d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
 				var expires = "expires=" + d.toUTCString();
-				console.info(cname + "=" + cvalue + "; " + expires);
+				// console.info(cname + "=" + cvalue + "; " + expires);
 				document.cookie = cname + "=" + cvalue + "; " + expires;
 			},
 			//获取cookie

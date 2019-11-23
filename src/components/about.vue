@@ -8,7 +8,7 @@
 				GENDER MALE
 			</div>
 			<div class="home_left_title">
-				23 YEARS OLD
+				{{lyearsOld}} YEARS OLD
 			</div>
 			<div class="home_left_title">
 				SINGLE
@@ -60,12 +60,19 @@
 		name: 'about',
 		data() {
 			return {
-				msg: 'Welcome to Your Vue.js App',
+				birthday:1996 ,
 
 			}
 		},
 		created: function() {
-
+			
+		},
+		computed:{
+			lyearsOld:function(){
+				let d = new Date();
+				let year = d.getFullYear();
+				return year-this.birthday;
+			}
 		},
 		methods: {
 
