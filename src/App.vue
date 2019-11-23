@@ -10,7 +10,7 @@
 		</div>
 		<div class="home" :style="{opacity: loadSpecialEffects}">
 			<div class="home_audio" @click="changePlay" id="change_play" :title="musicName" v-show="!homeAudioInint">
-				<audio id="home_audio" class="home_audio_audio" autoplay @ended="audioEnded">
+				<audio id="home_audio" class="home_audio_audio" @ended="audioEnded">
 					<source :src="musicURL" type="audio/mpeg">
 					您的浏览器不支持 audio 元素。
 				</audio>
@@ -62,16 +62,14 @@
 			}
 		},
 		created: function() {
-			let _homeAudioInint = this.getCookie("homeAudioInint");
-			if (_homeAudioInint && (_homeAudioInint == "false" || _homeAudioInint == false)) {
-				this.homeAudioInint = false;
-			} else {
-				this.audioExpress = "=";
-			}
 			//随机一首歌曲
 			this.musicIndex =  Math.floor(Math.random()*this.musicList.length);
 		},
 		mounted: function() {
+			let _homeAudioInint = this.getCookie("homeAudioInint");
+			if (_homeAudioInint && (_homeAudioInint == "false" || _homeAudioInint == false)) {
+				this.homeAudioInint = false;
+			}
 			if(this.homeAudioInint){
 				let _this = this;
 				setInterval(function() {
@@ -84,7 +82,6 @@
 			}else{
 				this.waveHeight = 100;
 			}
-			this.changePlay();
 		},
 		watch: {
 			$route(to, from) {
