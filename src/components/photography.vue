@@ -2,7 +2,7 @@
 	<div class="home_body" id="home_photogrphy_body">
 		<template v-for="(item, index)  in broadcast">
 			<div class="background" :style="{transform: 'translateX(' + (100 * index - pointer * 100) + '%)'}">
-				<img class="head-background" :src="item.img" />
+				<img class="head-background" :src="getImgUrl(item.code,item.suffix)" />
 				<div class="head_mask">
 					<div style="font-size: 20px;flex-basis:100%;font-weight:bolder;">{{ item.title }}</div>
 					<div>{{ item.slogan }}</div>
@@ -20,58 +20,89 @@
 				msg: 'Welcome to Your Vue.js App',
 				max: 0,
 				pointer: 0,
+				imgUrl:"https://tuchong.pstatp.com/15649298/f/",
 				broadcast: [{
-						title: "海天之间！",
-						slogan: "所谓诗和远方，到头来是水手跟码头。",
-						img: "static/haibian.jpeg",
+						title: "母与子",
+						slogan: "潮水退去的海边，一对母子在散步。",
+						code: "205111944",
+						suffix:"jpg",
 						homeColor: "#000000",
 						titleColor: "#FFFFFF"
 					},
 					{
-						title: "在路上！",
-						slogan: "旅行是一种态度和艺术。",
-						img: "static/dengta.jpeg",
+						title: "爱情邮局",
+						slogan: "珠海的旅游景点之一。",
+						code: "409846067",
+						suffix:"jpg",
 						homeColor: "#000000",
 						titleColor: "#FFFFFF"
 					}, {
-						title: "盛世之城",
-						slogan: "再多的梦想也填不满城市。",
-						img: "static/chengshi.jpeg",
+						title: "橘子洲大桥",
+						slogan: "湘江与橘子洲大桥。",
+						code: "294043815",
+						suffix:"jpg",
 						homeColor: "#000000",
 						titleColor: "#FFFFFF"
 					},
 
 					{
-						title: "来去之间",
-						slogan: "别停下，别等待，继续向前!",
-						img: "static/chezhan.png",
+						title: "旧火车站",
+						slogan: "早已废弃的火车站，现在供维修车头。",
+						code: "516735582",
+						suffix:"jpg",
 						homeColor: "#FFFFFF",
 						titleColor: "#FFFFFF"
 					},
 					{
-						title: "盛开的花",
-						slogan: "繁花似锦觅安宁，闲云流水度此生。",
-						img: "static/meihua.png",
+						title: "前山河畔",
+						slogan: "在太阳的余晖下，前山河畔倒映出建筑的影子。",
+						code: "324649648",
+						suffix:"jpg",
 						homeColor: "#000000",
 						titleColor: "#000000"
 					},
 					{
-						title: "向阳而生",
-						slogan: "生如夏花，死如秋叶。",
-						img: "static/xiaobaihua.jpeg",
+						title: "海岛一侧",
+						slogan: "即使11月份，海岛还是郁郁葱葱。",
+						code: "232571221",
+						suffix:"jpg",
 						homeColor: "#FFFFFF",
 						titleColor: "#FFFFFF"
 					},
 					{
 						title: "精致迷人",
 						slogan: "雨露均沾平添色，楚楚动人茶花开。",
-						img: "static/chahua.png",
+						code: "104383196",
+						suffix:"jpg",
 						homeColor: "#FFFFFF",
 						titleColor: "#FFFFFF"
-					}
+					},
+					{
+						title: "凤凰山水库",
+						slogan: "湖光山色美不胜收。",
+						code: "224576154",
+						suffix:"jpg",
+						homeColor: "#FFFFFF",
+						titleColor: "#FFFFFF"
+					},
+					{
+						title: "牵牛花",
+						slogan: "牵牛花与天空合印。",
+						code: "346735030",
+						suffix:"jpg",
+						homeColor: "#FFFFFF",
+						titleColor: "#FFFFFF"
+					},
 				],
 				indexObj: {},
 				broadcastBackups: {}
+			}
+		},
+		computed:{
+			getImgUrl:function(){
+				return function(code,suffix) {
+				    return this.imgUrl+code+"."+suffix;
+				}
 			}
 		},
 		created: function() {
@@ -93,6 +124,10 @@
 </script>
 
 <style scoped="scoped">
+	img {
+	    max-width: 100%;
+	    height: auto;
+	}
 	.home_body {
 		position: absolute;
 		top: 0px;
@@ -128,8 +163,9 @@
 	}
 
 	.head-background {
-		max-height: 100%;
+		/* max-height: 100%;
 		max-width: 100%;
+		width: auto; */
 		flex-basis: 100%;
 	}
 

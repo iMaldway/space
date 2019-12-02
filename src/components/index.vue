@@ -1,7 +1,7 @@
 <template>
 	<div class="home_body" id="home_body">
 		<div class="home_top">
-			<div class="home_top_name" data-content="iMaldway"></div>
+			<div class="home_top_name" data-content="iMaldway" ></div>
 			<div class="home_top_shuoming">关山难越，谁悲失路之人？<br>萍水相逢，尽是他乡之客。</div>
 		</div>
 		<div class="home_bottom">
@@ -39,6 +39,8 @@
 				<a href="http://www.cssmoban.com/" class="assembly ui-link">模版之家</a>
 				<a href="https://vue-particles.netlify.com/" class="assembly ui-link">粒子效果</a>
 				<a href="http://echarts.baidu.com/" class="assembly ui-link">Echarts</a>
+				<a href="https://v.qq.com/">腾讯视频</a>
+				<a href="https://tuchong.com">图虫</a>
 				<a href="https://dribbble.com">灵感</a>
 				<a href="https://music.163.com/">网易云音乐</a>
 				<a href="https://996.icu" class="ui-link">
@@ -60,6 +62,9 @@
 				msg: 'Welcome to Your Vue.js App',
 				mapHeight: 400,
 			}
+		},
+		methods: {
+			
 		},
 		mounted: function() {
 			let home_egg = document.getElementById('home_egg');
@@ -281,7 +286,7 @@
 			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0) !important;
 		}
 	}
-	@media screen and (min-width: 37.5rem) and (max-width: 55.25rem){
+	@media screen and (min-width: 35.5rem) and (max-width: 55.25rem){
 		.home_bottom_itme {
 			height: 7rem !important;
 			width: 20% !important;
@@ -292,12 +297,12 @@
 			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0) !important;
 		}
 	}
-	@media (max-width: 37.5rem) {
+	@media (max-width: 35.5rem) {
 		.home_bottom_itme {
 			margin: 1.5% !important;
 			flex-basis: 31% !important;
 			/* width: 19% !important; */
-			height: 7.5rem !important;
+			height: 6.5rem !important;
 			border-radius: 0.2rem !important;
 		}
 	}

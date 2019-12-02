@@ -4,10 +4,14 @@
 			<div class="fensug">
 				<div class="wavenum "><b id="denfenjs">{{ waveHeight }}%</b><tt>{{ waveNews }}</tt></div>
 				<div class="waven">
-					<div class="wave"  :style="{height: waveHeight+'%'}">&nbsp;</div>
+					<div class="wave" :style="{height: waveHeight+'%'}">&nbsp;</div>
 				</div>
 			</div>
 		</div>
+		<div class="home_audio_inint" v-if="videoBoo" @click="playVideo()">
+			<iframe class="home_video"  frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=o3029j2jdrg" allowFullScreen="true"></iframe>
+		</div>
+		
 		<div class="home" :style="{opacity: loadSpecialEffects}">
 			<div class="home_audio" @click="changePlay" id="change_play" :title="musicName" v-show="!homeAudioInint">
 				<audio id="home_audio" class="home_audio_audio" @ended="audioEnded">
@@ -16,6 +20,9 @@
 				</audio>
 				<div id="home_audio_div" class="home_audio_div" :title="musicName">{{ audioExpress }}</div>
 			</div>
+			<img class="home_vlog" v-show="!homeAudioInint" @click="playVideo()" title="这世界上总有一份美好能被你喜欢" src="../static/vlog_maldway.png">
+
+			</img>
 			<div v-if="backApp" class="home_top_muen" @click="backOf()">
 				< </div> <div class="home_tracing">
 					<div class="home_egg" id="home_egg">
@@ -48,38 +55,53 @@
 				particlesBoo: true,
 				audioExpress: ">",
 				homeAudioInint: true,
-				waveHeight:0,
-				waveNews:"初次加载中",
+				videoBoo:false,
+				waveHeight: 0,
+				waveNews: "初次加载中",
 				//Hero Trouble I'm In  สั่น（颤动） Is This Love
-				musicList:[
-				{"name":"Hero","code":"17863892"},
-				{"name":"Trouble I'm In","code":"29758362"},
-				{"name":"สั่น（颤动）","code":"28935319"},
-				{"name":"Is This Love","code":"29357332"},
-				{"name":"Havana","code":"494865824"}
+				musicList: [{
+						"name": "Hero",
+						"code": "17863892"
+					},
+					{
+						"name": "Trouble I'm In",
+						"code": "29758362"
+					},
+					{
+						"name": "สั่น（颤动）",
+						"code": "28935319"
+					},
+					{
+						"name": "Is This Love",
+						"code": "29357332"
+					},
+					{
+						"name": "Havana",
+						"code": "494865824"
+					}
 				],
-				musicIndex:0
+				musicIndex: 0
 			}
 		},
 		created: function() {
 			//随机一首歌曲
-			this.musicIndex =  Math.floor(Math.random()*this.musicList.length);
+			this.musicIndex = Math.floor(Math.random() * this.musicList.length);
 		},
 		mounted: function() {
 			let _homeAudioInint = this.getCookie("homeAudioInint");
 			if (_homeAudioInint && (_homeAudioInint == "false" || _homeAudioInint == false)) {
 				this.homeAudioInint = false;
 			}
-			if(this.homeAudioInint){
+			if (this.homeAudioInint) {
 				let _this = this;
 				setInterval(function() {
-					if(_this.waveHeight<100){
+					if (_this.waveHeight < 100) {
 						_this.waveHeight++;
-					}else{
+					} else {
 						_this.waveNews = "点击继续";
 					}
 				}, 100);
-			}else{
+			} else {
 				this.waveHeight = 100;
 			}
 		},
@@ -101,28 +123,31 @@
 				}
 			}
 		},
-		computed:{
-			loadSpecialEffects:function(){
-				if(this.homeAudioInint){
-					if(this.waveHeight>90){
-						return this.waveHeight/100;
-					}else if(this.waveHeight>40){
-						return this.waveHeight/160-0.2;
-					}else{
+		computed: {
+			loadSpecialEffects: function() {
+				if (this.homeAudioInint) {
+					if (this.waveHeight > 90) {
+						return this.waveHeight / 100;
+					} else if (this.waveHeight > 40) {
+						return this.waveHeight / 160 - 0.2;
+					} else {
 						return 0;
 					}
-				}else{
+				} else {
 					return 1;
 				}
 			},
-			musicURL:function(){
-				return "http://music.163.com/song/media/outer/url?id="+this.musicList[this.musicIndex].code+".mp3";
+			musicURL: function() {
+				return "http://music.163.com/song/media/outer/url?id=" + this.musicList[this.musicIndex].code + ".mp3";
 			},
-			musicName:function(){
+			musicName: function() {
 				return this.musicList[this.musicIndex].name;
 			}
 		},
 		methods: {
+			playVideo:function(){
+				this.videoBoo = !this.videoBoo;
+			},
 			backOf: function() {
 				if (window.location.pathname == "/" && window.location.hash == "#/") {
 					this.backApp = false;
@@ -135,18 +160,18 @@
 			},
 			changePlay: function() {
 				let myAudio = document.getElementById("home_audio");
-				if(!myAudio){
+				if (!myAudio) {
 					return;
 				}
-				if(this.homeAudioInint){
-					if(this.waveHeight<99){
+				if (this.homeAudioInint) {
+					if (this.waveHeight < 99) {
 						//如果音频已暂停返回true，否则返回false
 						if (myAudio.paused) {
 							myAudio.pause();
 							this.audioExpress = ">";
 						}
 						return;
-					}else{
+					} else {
 						this.setCookie("homeAudioInint", "false");
 						this.homeAudioInint = false;
 					}
@@ -159,14 +184,14 @@
 					myAudio.play();
 					//■▲
 					this.audioExpress = "=";
-					console.log("当前播放："+this.musicList[this.musicIndex].name);
+					console.log("当前播放：" + this.musicList[this.musicIndex].name);
 				}
 			},
-			audioEnded:function(){
+			audioEnded: function() {
 				// 不重复播放同一首歌
-				let _musicIndex =  Math.floor(Math.random()*this.musicList.length);
-				while(_musicIndex == this.musicIndex){
-					_musicIndex =  Math.floor(Math.random()*this.musicList.length);
+				let _musicIndex = Math.floor(Math.random() * this.musicList.length);
+				while (_musicIndex == this.musicIndex) {
+					_musicIndex = Math.floor(Math.random() * this.musicList.length);
 				}
 				this.musicIndex = _musicIndex;
 				this.changePlay();
@@ -252,7 +277,10 @@
 		background: linear-gradient(to right bottom, rgba(255, 210, 111, 0.6), rgba(54, 119, 255, 0.6));
 		/* filter:blur(15px); */
 	}
-
+	.home_video{
+		height: 50%;
+		width: 50%;
+	}
 	.home_audio_inint {
 		cursor: pointer;
 		color: #FFFFFF;
@@ -272,6 +300,27 @@
 		justify-content: center;
 		align-items: center;
 		align-content: initial;
+	}
+
+	.home_vlog {
+		cursor: pointer;
+		color: #FFFFFF;
+		top: 15%;
+		right: 5%;
+		z-index: 999;
+		position: absolute;
+		height: 30px;
+		width: 30px;
+		font-size: 18px;
+		font-weight: bolder;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		align-content: initial;
+		animation: audioVlog 2s infinite alternate;
 	}
 
 	.home_audio {
@@ -346,9 +395,19 @@
 		.home_egg_botom_button {
 			border: 2px solid #b6c1c7 !important;
 		}
+		
 	}
-
-	@media (max-width: 600px) {
+	@media screen and (min-width: 37.5rem) and (max-width: 55.25rem){
+		.home_video{
+			height: 40% !important;
+			width: 60% !important;
+		}
+	}
+	@media (max-width: 35.5rem) {
+		.home_video{
+			height: 35% !important;
+			width: 100% !important;
+		}
 		.home_top_muen {
 			display: inherit !important;
 		}
@@ -471,7 +530,16 @@
 		border: 2px solid #b6c1c7;
 		background-color: #b6c1c7;
 	}
-
+	
+	@keyframes audioVlog {
+		from {
+			transform: rotate(-30deg);
+		}
+	
+		to {
+			transform: rotate(30deg);
+		}
+	}
 	@keyframes audioIn {
 		from {
 			transform: rotate(0deg);
