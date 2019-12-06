@@ -9,35 +9,43 @@
 			</div>
 		</div>
 		<div class="home_audio_inint" v-if="videoBoo" @click="playVideo()">
-			<iframe class="home_video"  frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=o3029j2jdrg" allowFullScreen="true"></iframe>
+			<iframe class="home_video" frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=o3029j2jdrg"
+			 allowFullScreen="true"></iframe>
 		</div>
-		
+
 		<div class="home" :style="{opacity: loadSpecialEffects}">
 			<div class="home_audio" @click="changePlay" id="change_play" :title="musicName" v-show="!homeAudioInint">
 				<audio id="home_audio" class="home_audio_audio" @ended="audioEnded">
 					<source :src="musicURL" type="audio/mpeg">
 					您的浏览器不支持 audio 元素。
 				</audio>
-				<div id="home_audio_div" class="home_audio_div" :title="musicName">{{ audioExpress }}</div>
+				<div id="home_audio_div" class="home_audio_div" :title="musicName" :style="{color: getTheme.other.audioColor,'background-color':getTheme.other.audioBackgroundColor}">{{ audioExpress }}</div>
 			</div>
 			<img class="home_vlog" v-show="!homeAudioInint" @click="playVideo()" title="这世界上总有一份美好能被你喜欢" src="../static/vlog_maldway.png">
 
 			</img>
-			<div v-if="backApp" class="home_top_muen" @click="backOf()">
-				< </div> <div class="home_tracing">
-					<div class="home_egg" id="home_egg">
-						<vue-particles v-show="particlesBoo" color="#505668" :particleOpacity="0.8" :particlesNumber="60" shapeType="circle"
-						 :particleSize="4" linesColor="#dad7d7" :linesWidth="1" :lineLinked="true" :lineOpacity="0.4" :linesDistance="250"
-						 :moveSpeed="2" :hoverEffect="true" hoverMode="grab" :clickEffect="true" clickMode="push" class="home_egg_particles">
-						</vue-particles>
-						<transition name="fade">
-							<router-view></router-view>
-						</transition>
-					</div>
+			<span v-if="backApp" class="home_top_muen" @click="backOf()" :style="{'color':getTheme.other.navigation}">
+				&lt;
+			</span>
+			<div class="home_tracing">
+				<div class="home_egg" id="home_egg" :style="{'background-color':getTheme.backgroundColor}">
+					<vue-particles v-show="particlesBoo" :color="getTheme.color" :particleOpacity="0.7" :particlesNumber="60"
+					 shapeType="circle" :particleSize="4" linesColor="#dad7d7" :linesWidth="1" :lineLinked="true" :lineOpacity="0.4"
+					 :linesDistance="250" :moveSpeed="2" :hoverEffect="true" hoverMode="grab" :clickEffect="true" clickMode="push"
+					 class="home_egg_particles">
+					</vue-particles>
+					<transition name="fade">
+						<router-view></router-view>
+					</transition>
+					<transition name="fade">
+						<router-view :name="getTheme.name">
+						</router-view>
+					</transition>
+				</div>
 			</div>
 			<div class="home_egg_botom">
-				<div class="home_egg_botom_button" @click="backOf()">
-					<div class="home_egg_botom_button_square">
+				<div class="home_egg_botom_button" @click="backOf()" :style="{'border-color':getTheme.other.buttonBorderColor}">
+					<div class="home_egg_botom_button_square" :style="{'background-color':getTheme.other.buttonCoreColor}">
 					</div>
 				</div>
 			</div>
@@ -55,7 +63,7 @@
 				particlesBoo: true,
 				audioExpress: ">",
 				homeAudioInint: true,
-				videoBoo:false,
+				videoBoo: false,
 				waveHeight: 0,
 				waveNews: "初次加载中",
 				//Hero Trouble I'm In  สั่น（颤动） Is This Love
@@ -88,7 +96,7 @@
 			this.musicIndex = Math.floor(Math.random() * this.musicList.length);
 		},
 		mounted: function() {
-			let _homeAudioInint = this.getCookie("homeAudioInint");
+			let _homeAudioInint = this.$getCookie("homeAudioInint");
 			if (_homeAudioInint && (_homeAudioInint == "false" || _homeAudioInint == false)) {
 				this.homeAudioInint = false;
 			}
@@ -124,6 +132,9 @@
 			}
 		},
 		computed: {
+			getTheme:function(){
+				return this.$getTheme();
+			},
 			loadSpecialEffects: function() {
 				if (this.homeAudioInint) {
 					if (this.waveHeight > 90) {
@@ -145,7 +156,7 @@
 			}
 		},
 		methods: {
-			playVideo:function(){
+			playVideo: function() {
 				this.videoBoo = !this.videoBoo;
 			},
 			backOf: function() {
@@ -172,7 +183,7 @@
 						}
 						return;
 					} else {
-						this.setCookie("homeAudioInint", "false");
+						this.$setCookie("homeAudioInint", "false");
 						this.homeAudioInint = false;
 					}
 				}
@@ -196,42 +207,7 @@
 				this.musicIndex = _musicIndex;
 				this.changePlay();
 			},
-			//设置cookie
-			setCookie: function(cname, cvalue, exdays) {
-				var d = new Date();
-				d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-				var expires = "expires=" + d.toUTCString();
-				// console.info(cname + "=" + cvalue + "; " + expires);
-				document.cookie = cname + "=" + cvalue + "; " + expires;
-			},
-			//获取cookie
-			getCookie: function(cname) {
-				var name = cname + "=";
-				var ca = document.cookie.split(';');
-				for (var i = 0; i < ca.length; i++) {
-					var c = ca[i];
-					while (c.charAt(0) == ' ') c = c.substring(1);
-					if (c.indexOf(name) != -1) {
-						return c.substring(name.length, c.length);
-					}
-				}
-				return "";
-			},
-			//清除cookie
-			clearCookie: function() {
-				this.setCookie("username", "", -1);
-			},
-			checkCookie: function() {
-				var user = this.getCookie("username");
-				if (user != "") {
-					alert("Welcome again " + user);
-				} else {
-					user = prompt("Please enter your name:", "");
-					if (user != "" && user != null) {
-						this.setCookie("username", user, 365);
-					}
-				}
-			}
+
 		}
 	}
 </script>
@@ -275,12 +251,14 @@
 
 	body {
 		background: linear-gradient(to right bottom, rgba(255, 210, 111, 0.6), rgba(54, 119, 255, 0.6));
-		/* filter:blur(15px); */
+
 	}
-	.home_video{
+
+	.home_video {
 		height: 50%;
 		width: 50%;
 	}
+
 	.home_audio_inint {
 		cursor: pointer;
 		color: #FFFFFF;
@@ -306,7 +284,7 @@
 		cursor: pointer;
 		color: #FFFFFF;
 		top: 15%;
-		right: 5%;
+		right: 6%;
 		z-index: 999;
 		position: absolute;
 		height: 30px;
@@ -327,7 +305,7 @@
 		cursor: pointer;
 		color: #FFFFFF;
 		top: 5%;
-		right: 5%;
+		right: 6%;
 		z-index: 999;
 		position: absolute;
 		height: 30px;
@@ -373,11 +351,12 @@
 
 	.home_top_muen {
 		cursor: pointer;
-		color: #000000 !important;
+		color: #000000;
 		top: 0px;
-		z-index: 9;
-		position: relative;
+		z-index: 999;
+		position: absolute;
 		text-align: center;
+		left: 0rem;
 		height: 50px;
 		width: 50px;
 		line-height: 50px;
@@ -389,27 +368,30 @@
 
 	@media (max-width: 1400px) {
 		.home {
-			background-color: #fdfdfd !important;
+			background-color: #fdfdfd;
 		}
 
 		.home_egg_botom_button {
-			border: 2px solid #b6c1c7 !important;
+			border: 2px solid #b6c1c7;
 		}
-		
+
 	}
-	@media screen and (min-width: 37.5rem) and (max-width: 55.25rem){
-		.home_video{
+
+	@media screen and (min-width: 35.5rem) and (max-width: 55.25rem) {
+		.home_video {
 			height: 40% !important;
 			width: 60% !important;
 		}
 	}
+
 	@media (max-width: 35.5rem) {
-		.home_video{
+		.home_video {
 			height: 35% !important;
 			width: 100% !important;
 		}
+
 		.home_top_muen {
-			display: inherit !important;
+			display: inline !important;
 		}
 
 		.home_tracing {
@@ -464,7 +446,6 @@
 		width: 100%;
 		height: calc(100% - 50px);
 		box-sizing: border-box;
-		/* overflow-y: hidden; */
 		border-radius: 15px;
 	}
 
@@ -476,7 +457,7 @@
 		justify-content: center;
 		align-items: center;
 		align-content: center;
-		background-color: #fdfdfd !important;
+		background-color: #fdfdfd;
 		position: relative;
 		width: 100%;
 		height: 100%;
@@ -527,19 +508,19 @@
 		border-radius: 3px;
 		height: 70%;
 		width: 70%;
-		border: 2px solid #b6c1c7;
 		background-color: #b6c1c7;
 	}
-	
+
 	@keyframes audioVlog {
 		from {
 			transform: rotate(-30deg);
 		}
-	
+
 		to {
 			transform: rotate(30deg);
 		}
 	}
+
 	@keyframes audioIn {
 		from {
 			transform: rotate(0deg);

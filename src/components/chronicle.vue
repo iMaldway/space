@@ -1,22 +1,23 @@
 <template>
 	<div class="chronicle">
-		<div class="chronicle_circular">
-			<div class="chronicle_circular_heart"></div>
+		<div class="chronicle_circular" :style="{'border-color':getTheme.other.chronicleColor}">
+			<div class="chronicle_circular_heart" :style="{'background-color':getTheme.other.chronicleColor}"></div>
 		</div>
 		<template v-for="(item, index)  in historyList">
 			<div class="chronicle_link" >
-				<div class="chronicle_link_row" :class="choice(index)">
-					<div class="particular_year">
+				<div class="chronicle_link_row" :class="choice(index)"  :style="{'border-color':getTheme.other.chronicleColor}">
+					<div class="particular_year" :style="{'color':getTheme.color}">
 						{{item.year}}年
 					</div>
 					<div class="particular_year_event particular_year_event_hover">
 						{{item.event}}
 					</div>
+					<div :class="getColor(index)" :style="{'background-color':getTheme.other.chronicleColor}"></div>
 				</div>
 			</div>
 		</template>
 		<div class="chronicle_link" >
-			<div class="chronicle_link_row" >
+			<div class="chronicle_link_row" :style="{'border-color':getTheme.other.chronicleColor}">
 				
 			</div>
 		</div>
@@ -87,9 +88,17 @@
 			}
 		},
 		computed:{
-			choice:function(){
+			choice:function(e){
 				return function(index) {
 				    return index%2 == 0 ? "link_left":"link_right";
+				}
+			},
+			getTheme:function(){
+				return this.$getTheme();
+			},
+			getColor:function(){
+				return function(index,) {
+				    return index%2 == 0 ? "link_left_after":"link_right_after";
 				}
 			}
 		},
@@ -170,7 +179,7 @@
 		background-color: rgba(51, 51, 51, 0.75);
 		color: #FFFFFF;
 	}
-	.link_left::after{
+	.link_left_after{
 	    content:"";
 	    display: block;
 	    position:absolute;
@@ -183,7 +192,7 @@
 		background-color: #5576AC;
 		border-radius:50%;
 	}
-	.link_right::after{
+	.link_right_after{
 	    content:"";
 	    display: block;
 	    position:absolute;

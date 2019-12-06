@@ -200,21 +200,24 @@
 	/*
 	* 小于700
 	* */
-	@media only screen and (max-width: 700px) {
+	@media only screen and (max-width: 35.5rem) {
 		.head_mask {
 			width: 100% !important;
 			bottom: 0px !important;
-			background-color: rgba(255, 255, 255, 0) !important;
+			height: auto !important;
+			padding: 1.325rem;
+			/* background-color: rgba(255, 255, 255, 0) !important; */
 		}
 	}
 	/*
 	* 大于700小于1200
 	* */
-	@media screen and (min-width: 700px) and (max-width: 1200px) {
+	@media screen and (min-width: 35.5rem) and (max-width: 55.25rem) {
 		.head_mask {
 			width: 30% !important;
-			height: 30% !important;
+			height: auto !important;
 			background-color: rgba(255, 255, 255, 0.8) !important;
+			padding: 1.025rem;
 		}
 	}
 </style>

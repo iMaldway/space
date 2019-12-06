@@ -979,11 +979,18 @@
 			this.mapHeight = this.$route.params.mapHeight - value;
 			this.mapwidth = this.$route.params.mapHeight - value;
 		},
+		computed: {
+			getTheme:function(){
+				let theme = this.$getTheme();
+				return theme;
+			}
+		},
 		mounted: function() {
 			//
 			let main = document.getElementById('main');
 			var mapChart = this.$echarts.init(document.getElementById("main"));
 			let _this = this;
+			
 			var convertData = function(data) {
 				var res = [];
 				let _arrive = 0;
@@ -1004,14 +1011,17 @@
 				}
 				return res;
 			};
-			
+			console.log(_this.getTheme.color);
 			var option = {
 				title: {
 					text: '旅行途径',
 					subtext: '人生好比攀峰，路是越走越长',
-					left: 'center'
+					left: 'center',
+					textStyle:{
+						color:_this.getTheme.color?_this.getTheme.color:'#333'
+					}
 				},
-				backgroundColor: '#fdfdfd',
+				backgroundColor: _this.getTheme.backgroundColor?_this.getTheme.backgroundColor:'#fdfdfd',
 				tooltip: {
 					show:false,
 					trigger: "item"

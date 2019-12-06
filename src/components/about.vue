@@ -1,19 +1,19 @@
 <template>
 	<div class="home_body" id="home_about_body">
-		<div class="home_left">
-			<div class="home_left_title">
+		<div class="home_left" >
+			<div class="home_left_title" :style="{'color':getTheme.color}">
 				Mr. MALDWAY
 			</div>
-			<div class="home_left_title">
+			<div class="home_left_title" :style="{'color':getTheme.color}">
 				GENDER MALE
 			</div>
-			<div class="home_left_title">
+			<div class="home_left_title" :style="{'color':getTheme.color}">
 				{{lyearsOld}} YEARS OLD
 			</div>
-			<div class="home_left_title">
+			<div class="home_left_title" :style="{'color':getTheme.color}">
 				SINGLE
 			</div>
-			<div class="home_left_title">
+			<div class="home_left_title" :style="{'color':getTheme.color}">
 				中国湖南
 			</div>
 		</div>
@@ -22,12 +22,12 @@
 			<div class="hone_right_title_important">
 				档案资料
 			</div>
-			<div class="home_right_title">
+			<div class="home_right_title" :style="{'color':getTheme.other.aboutArticle}">
 				&nbsp;&nbsp;&nbsp;&nbsp;
 				喜欢的太多，厌恶的不少，这世间有趣的人难得，你要不要来分辨一下？
 			</div>
-			<div class="home_right_line"></div>
-			<div class="home_right_title">
+			<div class="home_right_line" :style="{'border-color':getTheme.color}"></div>
+			<div class="home_right_title" :style="{'color':getTheme.other.aboutArticle}">
 				&nbsp;&nbsp;&nbsp;&nbsp;
 				如果生命只剩最后一天，你有什么想要去做的？去把想说的话说出来？去问想知道的答案？去弥补犯过的错？去爱一个也爱你的人？<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;
@@ -39,14 +39,14 @@
 				&nbsp;&nbsp;&nbsp;&nbsp;
 				心中有个结，想着有一天能去西藏化个缘，了一了过去的每个日子，去祈祷每一个未来的日子，不求顺风顺水，但求随缘自在。
 			</div>
-			<div class="home_right_line"></div>
+			<div class="home_right_line" :style="{'border-color':getTheme.color}"></div>
 			<div class="home_right_title">
 				<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=wqauo6_uq7eCpK26r6Orruyhra8"
 				 style="text-decoration: none;" class="ui-link">
 					<img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_01.png"></a>
 			</div>
-			<div class="home_right_title" style="flex-basis: 100%;justify-content: flex-start;">
-				<a href="https://weibo.com/u/5632001274">新浪微博@哆啦没有先生</a>
+			<div class="home_right_title" style="flex-basis: 100%;justify-content: flex-start;" >
+				<a href="https://weibo.com/u/5632001274" :style="{'color':getTheme.other.hyperlink}">新浪微博@哆啦没有先生</a>
 			</div>
 			<div class="home_right_title" style="flex-basis: 100%;justify-content: flex-start;color: #fb325c;">
 				除图片外所有素材均来自网络，若侵犯了您的合法权益，请联系我，将在24小时内处理。
@@ -60,8 +60,7 @@
 		name: 'about',
 		data() {
 			return {
-				birthday:1996 ,
-
+				birthday:1996 
 			}
 		},
 		created: function() {
@@ -72,6 +71,9 @@
 				let d = new Date();
 				let year = d.getFullYear();
 				return year-this.birthday;
+			},
+			getTheme:function(){
+				return this.$getTheme();
 			}
 		},
 		methods: {
@@ -108,6 +110,7 @@
 		height: 100%;
 		padding-left: 5%;
 		padding-top: 15%;
+		margin-top: 3.125rem;
 
 	}
 
@@ -149,25 +152,28 @@
 			margin-top: 20%;
 			margin-bottom: 20%;
 		}
-		.home_left{
-			min-height: 18rem !important;
-		}
+		
 	}
-
-	@media screen and (min-width: 37.5625rem) and (max-width: 52.5rem) {
+	@media screen and (min-width: 52.5rem){
+		.home_left{
+			margin-top: 0rem;
+		}
+		
+	}
+	@media screen and (min-width: 35.5rem) and (max-width: 52.5rem) {
 		.home_left {
 			flex-basis: 100% !important;
 			width: 100% !important;
-			height: 35% !important;
-			min-height: 21.25rem;
+			height: auto !important;
 			padding-top: 0px !important;
 			align-content: center !important;
+			margin-top: 0.5rem;
 		}
 		
 		.hone_right {
 			flex-basis: 100% !important;
 			width: 100% !important;
-			height: 65% !important;
+			height: auto !important;
 		}
 		
 		.home_left_title {
@@ -178,13 +184,13 @@
 		
 		}
 	}
-	@media screen and  (max-width: 37.5rem) {
+	@media screen and  (max-width: 35.5rem) {
 		.home_left {
 			flex-basis: 100% !important;
 			width: 100% !important;
 			height: auto !important;
-			min-height: 140px !important;
 			padding-top: 0px !important;
+			
 			align-content: center !important;
 			
 		}
@@ -194,7 +200,7 @@
 			width: 100% !important;
 			height: auto;
 			margin-top: 5%;
-			margin-bottom: 15%;
+			margin-bottom: 5%;
 			
 		}
 		

@@ -2,10 +2,10 @@
 	<div class="home_body" id="home_major_body">
 
 		<div class="home_left">
-			<div class="home_left_title">
+			<div class="home_left_title" :style="{'color':getTheme.color}">
 				{{content.name}}
 			</div>
-			<div class="home_left_body">
+			<div class="home_left_body" :style="{'color':getTheme.other.aboutArticle}">
 				&nbsp;&nbsp;&nbsp;&nbsp;
 				{{content.body}}
 			</div>
@@ -99,6 +99,11 @@
 				this.middle = this.index + 1;
 				this.content = data[this.index];
 			}
+		},
+		computed:{
+			getTheme:function(){
+				return this.$getTheme();
+			}
 		}
 	}
 </script>
@@ -107,11 +112,10 @@
 <style scoped="scoped">
 	.home_body {
 		position: absolute;
-		top: 0px;
-		bottom: 0px;
+		top: 0rem;
+		bottom: 0rem;
 		overflow-y: auto;
 		width: 100%;
-		height: 100%;
 		display: flex;
 		text-align: center;
 		flex-direction: row;
@@ -120,6 +124,7 @@
 		align-items: flex-start;
 		align-content: center;
 		padding: 15px;
+		z-index: 2;
 	}
 
 	.home_left {
@@ -130,7 +135,8 @@
 		justify-content: center;
 		flex-basis: 55%;
 		width: 55%;
-		height: 100%;
+		height: auto;
+		margin-top: 1.875rem;
 	}
 
 	.hone_right {
@@ -182,7 +188,8 @@
 		align-content: flex-start !important;
 		font-size: 16px;
 		color: #666666;
-		height: 70%;
+		height: auto;
+		padding: 0.625rem;
 		transition: all 0.3s ease;
 	}
 
@@ -235,33 +242,35 @@
 
 	@media all and (max-height:26.25rem) {
 		.home_left {
-			/* margin-top: 50%; */
-			position: absolute;
-			/* top: 0%;x */
+			margin-top: 30%;
+			position: absolute ;
+			top: 3.125rem;
 			width: 100%;
-			height: 120% !important;
 		}
 		.hone_right {
 			position: relative;
-			top: 140%;
+			top: 60%;
 			width: 100%;
-			height: 100% !important;
+			min-height: 7.5rem;
 		}
 	}
 	@media (max-width: 52.5rem) {
 		.home_left {
-			height: 70%;
+			width: 100%;
+			position: relative;
 			flex-basis: 100% !important;
 		}
 
 		.hone_right {
-			height: 30%;
+			height: 16%;
+			margin-top: 1rem;
+			position: relative;
 			flex-basis: 100% !important;
 		}
 
 		.home_right_top {
 			width: 50% !important;
-			height: 60% !important;
+			height: 90% !important;
 			font-size: 1.25rem !important;
 			margin-left: 0% !important;
 			margin-bottom: 5.25% !important;
@@ -269,7 +278,7 @@
 
 		.home_right_bottom {
 			width: 50% !important;
-			height: 60% !important;
+			height: 90% !important;
 			margin-right: 0% !important;
 			margin-top: 5.25% !important;
 			font-size: 2rem;
