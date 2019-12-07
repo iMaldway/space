@@ -296,7 +296,7 @@
 
 	@media screen and (min-width: 35.5rem) and (max-width: 55.25rem) {
 		.home_bottom_itme {
-			height: 7rem !important;
+			height: 7.25rem !important;
 			width: 20% !important;
 			flex-basis: 20% !important;
 			box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.1), 0 4px 18px 0 rgba(0, 0, 0, 0.1) !important;
@@ -306,8 +306,14 @@
 			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0) !important;
 		}
 	}
-
-	@media (max-width: 35.5rem) {
+	@media screen and (min-width: 20rem) and (max-width: 35.5rem) {
+		.home_bottom_itme {
+			margin: 1.5% !important;
+			flex-basis: 31% !important;
+			height: 7.35rem !important;
+		}
+	}
+	@media (max-width: 20rem) {
 		.home_bottom_itme {
 			margin: 1.5% !important;
 			flex-basis: 31% !important;
