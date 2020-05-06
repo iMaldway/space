@@ -52,10 +52,9 @@
 
 <script>
 	export default {
-		name: 'index',
+		name: 'index_theme_blued',
 		data() {
 			return {
-				msg: 'Welcome to Your Vue.js App',
 				mapHeight: 400,
 			}
 		},

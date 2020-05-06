@@ -1,5 +1,5 @@
 <template>
-	<div id="app">
+	<div id="app" :style="{'background':getTheme.bodyBackgroundColor}">
 		<div class="home_audio_inint" v-show="homeAudioInint" @click="changePlay">
 			<div class="fensug">
 				<div class="wavenum "><b id="denfenjs">{{ waveHeight }}%</b><tt>{{ waveNews }}</tt></div>
@@ -13,7 +13,7 @@
 			 allowFullScreen="true"></iframe>
 		</div>
 
-		<div class="home" :style="{opacity: loadSpecialEffects}">
+		<div class="home" :style="{opacity: loadSpecialEffects,'background-color':getTheme.frameColor}">
 			<div class="home_audio" @click="changePlay" id="change_play" :title="musicName" v-show="!homeAudioInint">
 				<audio id="home_audio" class="home_audio_audio" @ended="audioEnded">
 					<source :src="musicURL" type="audio/mpeg">
@@ -249,8 +249,11 @@
 		box-sizing: border-box;
 	}
 
-	body {
-		background: linear-gradient(to right bottom, rgba(255, 210, 111, 0.6), rgba(54, 119, 255, 0.6));
+	#app {
+		margin: 0 auto;
+		width: 100%;
+		height: 100%;
+		/* background: linear-gradient(to right bottom, rgba(255, 210, 111, 0.6), rgba(54, 119, 255, 0.6)); */
 
 	}
 

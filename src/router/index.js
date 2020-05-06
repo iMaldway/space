@@ -4,6 +4,7 @@ import home from '@/components/home'
 import photography from '@/components/photography'
 import index from '@/components/index'
 import indexThemeBlued from '@/components/index_theme_blued'
+import indexThemeRed from '@/components/index_theme_red'
 import world from '@/components/world'
 import about from '@/components/about'
 import chronicle from '@/components/chronicle'
@@ -26,7 +27,8 @@ export default new Router({
 			name: 'index',
 			components: {
 				indexTheme: index,
-				indexThemeBlued: indexThemeBlued
+				indexThemeBlued: indexThemeBlued,
+				indexThemeRed:indexThemeRed
 			}
 		},
 		{

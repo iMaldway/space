@@ -33,12 +33,13 @@
 			</div>
 
 		</div>
+	</div>
 </template>
 
 <script>
 	let data = [{
 			"name": "Java",
-			"body": "多年开发经验。时常感叹于先驱们在这个领域深耕所带来的硕果。 也被当下流行框架的精妙设计所折服，不由得产生一种感叹，我只是代码的搬运者。这门语言相当成熟，成熟到让很多人以为框架就是其开发的基础，但我喜欢追寻答案，就像艺术的美不在于它本身，而在于它的意义。",
+			"body": "时常感叹于先驱们在这个领域深耕所带来的硕果。 也被当下流行框架的精妙设计所折服，不由得产生一种感叹，我只是代码的搬运者。这门语言相当成熟，成熟到让很多人以为框架就是其开发的基础，但我喜欢追寻答案，就像艺术的美不在于它本身，而在于它的意义。",
 			"level": 6,
 			"year": 3.4
 		},
@@ -100,8 +101,8 @@
 				this.content = data[this.index];
 			}
 		},
-		computed:{
-			getTheme:function(){
+		computed: {
+			getTheme: function() {
 				return this.$getTheme();
 			}
 		}
@@ -173,7 +174,7 @@
 	}
 
 	.home_left_title {
-		
+
 		font-size: 3rem;
 		height: auto;
 		color: #333333;
@@ -243,10 +244,11 @@
 	@media all and (max-height:26.25rem) {
 		.home_left {
 			margin-top: 30%;
-			position: absolute ;
+			position: absolute;
 			top: 3.125rem;
 			width: 100%;
 		}
+
 		.hone_right {
 			position: relative;
 			top: 60%;
@@ -254,6 +256,7 @@
 			min-height: 7.5rem;
 		}
 	}
+
 	@media (max-width: 52.5rem) {
 		.home_left {
 			width: 100%;
