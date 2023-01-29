@@ -143,7 +143,11 @@ export default {
       let _this = this
       setInterval(function () {
         if (_this.waveHeight < 100) {
-          _this.waveHeight++
+          let newNum = Math.floor(Math.random() * 10) + 1
+          _this.waveHeight += newNum
+          if (_this.waveHeight >= 100) {
+            _this.waveHeight = 100
+          }
         } else {
           _this.waveNews = '点击继续'
         }

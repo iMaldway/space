@@ -122,10 +122,24 @@ export default {
     let home_egg_height = home_egg.clientHeight
     this.mapHeight = home_egg_height
     GlobalEventBus.$on('jump', data => {
+      this.goBack()
+    })
+    if (window.history && window.history.pushState) {
+      history.pushState(null, null, document.URL) //这里有没有都无所谓，最好是有以防万一
+      window.addEventListener('popstate', this.goBack, false)
+    }
+  },
+  methods: {
+    goBack() {
       this.historyList = []
       this.mapHeight = 400
       this.height = '0px !important'
-    })
+      this.$router.go(-1)
+      return true
+    }
+  },
+  destroyed() {
+    window.removeEventListener('popstate', this.goBack, false)
   }
 }
 </script>
