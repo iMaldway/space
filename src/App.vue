@@ -209,11 +209,11 @@ export default {
         return
       } else {
         this.backApp = true
-        // window.history.back()
         GlobalEventBus.$emit('jump', {
           event: 'back'
         })
-        this.$router.back(-1)
+        // this.$router.back(-1)
+        window.history.back()
       }
     },
     changePlay: function () {
