@@ -131,10 +131,12 @@ export default {
   },
   methods: {
     goBack() {
-      this.historyList = []
-      this.mapHeight = 400
-      this.height = '0px !important'
-      this.$router.go(-1)
+      if (this.historyList.length > 0) {
+        this.historyList = []
+        this.mapHeight = 400
+        this.height = '0px !important'
+        window.history.back()
+      }
       return true
     }
   },
