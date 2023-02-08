@@ -203,7 +203,10 @@ export default {
       this.videoBoo = !this.videoBoo
     },
     backOf: function () {
-      if (window.location.pathname == '/' && window.location.hash == '#/') {
+      if (
+        (window.location.pathname == '/' || window.location.pathname == '/space/dist/') &&
+        window.location.hash == '#/'
+      ) {
         this.backApp = false
         this.particlesBoo = true
         return
